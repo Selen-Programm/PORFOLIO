@@ -1,0 +1,429 @@
+/* estilos.css */
+
+:root {
+    --pastel-pink: #fdf8f8; 
+    --pink-claro: #f5dddd; 
+    --pink-medio: #efc7c7; 
+    --pink-comùn: #e8b1b1; 
+    --pink-ocuro: #e29b9b; 
+    --dark-pink: #db8585; 
+    --letras:  #1d0808;
+}
+
+body {
+    margin: 0;
+    font-family: 'Helvetica Neue', sans-serif;
+    background-color: var(--pastel-pink);
+}
+
+h1,
+h2,
+h3,
+h5,
+.logo {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--dark-pink);
+}
+
+p {
+    font-family: "Edu QLD Beginner";
+    font-weight: 500;
+    color: var(--letras);
+}
+
+
+/* resets */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* nav styles */
+header {
+    background-color: var(--pink-medio);
+    text-align: center;
+    position: fixed;
+    z-index: 900;
+    width: 100%;
+}
+
+.nav-toggle {
+    display: none;
+}
+
+.nav-toggle-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: 1em;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+    display: block;
+    background: var(--letras);
+    height: 2px;
+    width: 2em;
+    border-radius: 2px;
+    position: relative;
+}
+
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+    content: "";
+    position: absolute;
+
+}
+
+.nav-toggle-label span::before {
+    bottom: 7px;
+}
+
+.nav-toggle-label span::after {
+    top: 7px;
+}
+
+.logo {
+    color: var(--letras);
+    font-size: 30px;
+    img {
+        width: 50px;
+        height: 50px;
+        border-radius: 100%;
+    }
+}
+
+nav {
+    position: absolute;
+    text-align: left;
+    top: 100%;
+    left: 0;
+    width: 50%;
+    transform: scale(1, 0);
+    transform-origin: top;
+    transition: transform 100ms ease-in-out;
+    background: #EFC7C7;
+    background: linear-gradient(180deg,rgba(239, 199, 199, 1) 
+    60%, rgba(237, 221, 83, 0) 100%);
+    opacity: 0.9;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+nav li {
+    margin-bottom: 1em;
+    margin-left: 1em;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--letras);
+    font-weight: 500;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    opacity: 0;
+    transition: opacity 150ms ease-in-out;
+}
+
+nav a:hover {
+    color: var(--pastel-pink);
+}
+
+.nav-toggle:checked~nav {
+    transform: scale(1, 1);
+}
+
+.nav-toggle:checked~nav a {
+    opacity: 1;
+    transition: opacity 250ms ease-in-out 250ms;
+}
+
+.hero {
+    text-align: left;
+    padding: 100px 150px;
+   
+    h1 {
+        font-size: 100px;
+        margin-bottom: 20px;
+    }
+}
+
+/* PROYECTOS */
+
+.about,
+.proyectos,
+.portfolio {
+    position: relative;
+    padding: 60px 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.portafilio-content {
+    position: absolute;
+    padding-top: 100px;
+    width: 800px;
+    height: 500px;
+    bottom: 0;
+    right: 10px;
+    top: 1px;
+    z-index: 0;
+    opacity: 0.5;
+    background-size: contain;
+    background-image: url(imags/png\ prueba.png);
+}
+
+.portfolio {
+    z-index: 1;
+}
+
+.parent {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 8px;
+    ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    }
+    li {
+    margin-bottom: 1em;
+    margin-left: 1em;
+    }
+}
+    
+.div1 {
+    height: 150px;
+    grid-column: span 3 / span 3;
+    grid-column-start: 3;
+    grid-row-start: 2;
+    h1 {
+        font-size: 70px;
+    }
+}
+
+.div2 { 
+    height: 250px;
+    align-content: space-around;
+    grid-column: span 3 / span 3;
+    grid-row: span 2 / span 2;
+    grid-column-start: 3;
+    grid-row-start: 3;
+
+    img {
+        width: 50px;
+        height: auto;
+        border-radius: 8px;
+    }
+    img:hover {
+        transform: scale(1.1);
+        transition: transform 0.3s ease;
+        
+    }
+}
+
+.div3 {
+    height: 100px;
+    grid-column: span 2 / span 2;
+    grid-row: span 3 / span 3;
+    grid-column-start: 1;
+    grid-row-start: 3;
+    h1 {
+        font-size: 70px;
+        text-align: end;
+    }
+    
+}
+
+
+.proyectos .galeria {
+    display: flex;
+    gap: 10px;  
+    flex-wrap: wrap;
+    justify-content: start;
+}
+
+.proyectos .galeria .expl img {
+    width: 300px;
+    height: auto;
+    border-radius: 8px;
+}
+
+    .proyectos .galeria .expl {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(1, 1fr);
+        gap: 8px;
+        h2 {
+            font-size: 30px;
+        }
+    }
+.proyecto-contenido {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.proyecto-contenido p {
+    flex: 1;
+    min-width: 250px;
+    font-family: "Edu QLD Beginner";
+    font-weight: 500;
+    color: var(--letras);
+}
+
+    
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--pink-medio);
+}
+
+/*  MEDIA @ interfast */
+
+
+@media screen and (min-width: 768px) {
+    .nav-toggle-label {
+        display: none;
+    }
+
+    header {
+        display: grid;
+        grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr;
+    }
+
+    .logo {
+        grid-column: 1 / 2;
+    }
+
+    nav {
+        all: unset;
+        grid-column: 3 / 4;
+        display: flex;
+        justify-content: end;
+        align-items: center;
+    }
+
+    nav ul {
+        display: flex;
+    }
+
+    nav li {
+        margin-left: 2em;
+        margin-bottom: 0;
+    }
+
+    nav a {
+        font-weight: 500;
+        font-size: 1rem;
+        opacity: 1;
+        position: relative;
+    }
+
+    nav a::before {
+        content: '';
+        display: block;
+        height: 5px;
+        background: black;
+        position: absolute;
+        bottom: -.75em;
+        left: 0;
+        right: 0;
+        transform: scale(0, 1);
+        transition: transform ease-in-out 250ms;
+    }
+
+    nav a:hover::before {
+        transform: scale(1, 1);
+    }
+    
+    }
+@media screen and (max-width: 767px) {
+    .hero {
+        padding: 80px 20px;
+    }
+
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .logo {
+        translate: 90% 0;
+    }
+    .portafilio-content {
+        position: absolute;
+        width: 300px;
+        height: auto;
+        padding: 20px 0;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .parent {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+
+    .div1,
+    .div2,
+    .div3 {
+        grid-column: auto;
+        grid-row: auto;
+        height: auto;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .div1 h1,
+    .div3 h1 {
+        font-size: 40px;
+        text-align: center;
+    }
+
+    .div2 img {
+        width: 30px;
+    }
+
+    .proyectos .galeria {
+        justify-content: center;
+    }
+
+    .proyectos .galeria .expl {
+        img {
+            border-radius: 0;
+            width: 100%;
+            max-width: 100%;
+        }
+        img:hover {
+            transform: scale(4);
+            translate: 130px 0;
+            transition: transform 0.3s ease;
+            filter: drop-shadow(0 0 10px #110f0fc4);
+        }
+        
+    }
+
+    header {
+        text-align: left;
+        padding: 10px;
+    }
+
+    nav a {
+        font-size: 1rem;
+    }
+
+}
