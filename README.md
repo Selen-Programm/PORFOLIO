@@ -32,7 +32,7 @@ Currently I specialize in:
 ✉ Email: [sel.ehagaraztec2@gmail.com](mailto:sel.ehagaraztec2@gmail.com)
 
 --- ────୨ৎ──── ---
-
+ 
 ##  🗒 ˎˊ˗ Nota · Note
 
 Si usas alguno de mis códigos, ¡por favor **dame créditos**!   
