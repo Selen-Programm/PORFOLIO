@@ -12,3 +12,4 @@ $featurePic.mouseleave(
 function(){
   $(this).find($picMessage).animate({'top': '87%' }, 'medium');
 });
+

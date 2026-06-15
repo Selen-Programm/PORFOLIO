@@ -1,8 +1,5 @@
-/* estilos.css - Selen Design Portfolio */
+/* estilos.css - Selen Design Portfolio - Responsive Fixes */
 
-/* ========================================
-   VARIABLES & RESET
-======================================== */
 :root {
     --pastel-pink: #fdf8f8;
     --pink-light: #f5dddd;
@@ -29,6 +26,15 @@
     box-sizing: border-box;
 }
 
+
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden; /* Oculta fulminantemente la franja negra */
+
+}
+
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 90px;
@@ -40,12 +46,16 @@ body {
     background-color: var(--pastel-pink);
     color: var(--letras);
     line-height: 1.6;
+    /* FIX: evita scroll horizontal no deseado */
+    overflow-x: hidden;
+    width: 100%;
 }
 
-/* ========================================
-   TYPOGRAPHY
-======================================== */
-h1, h2, h3, h4, h5, .logo {
+h1,
+h2,
+h3,
+h4,
+h5 {
     font-family: "Bebas Neue", sans-serif;
     font-weight: 400;
     font-style: normal;
@@ -53,9 +63,17 @@ h1, h2, h3, h4, h5, .logo {
     margin: 0;
 }
 
-h1 { font-size: clamp(2.5rem, 8vw, 4rem); }
-h2 { font-size: clamp(1.5rem, 4vw, 2rem); }
-h3 { font-size: clamp(1.1rem, 2.5vw, 1.25rem); }
+h1 {
+    font-size: clamp(2.5rem, 8vw, 4rem);
+}
+
+h2 {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+}
+
+h3 {
+    font-size: clamp(1.1rem, 2.5vw, 1.25rem);
+}
 
 p {
     font-family: 'Poppins', sans-serif;
@@ -65,9 +83,6 @@ p {
     font-size: 0.95rem;
 }
 
-/* ========================================
-   BUTTONS
-======================================== */
 .btn {
     display: inline-block;
     padding: 12px 28px;
@@ -103,17 +118,18 @@ p {
     color: var(--white);
 }
 
-/* ========================================
-   HEADER & NAVIGATION
-======================================== */
-header {
-    background-color: var(--pink-medio);
-    text-align: center;
+header {background-color: var(--pink-medio);
     position: fixed;
     z-index: 900;
     width: 100%;
-    padding: 8px 20px;
+    height: 80px;
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+    
+    /* NUEVO: Alineación limpia en móviles */
+    display: flex;
+    justify-content: center; /* Centra el logo en el medio */
+    align-items: center;
+    padding: 0 20px;
 }
 
 .nav-toggle {
@@ -122,14 +138,17 @@ header {
 
 .nav-toggle-label {
     position: absolute;
-    top: 0;
-    left: 0;
-    margin-left: 1em;
-    height: 100%;
-    display: flex;
-    align-items: center;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    /* Centrado vertical perfecto */
+    margin-left: 0;
     cursor: pointer;
     z-index: 100;
+    height: auto;
+    /* Cambiado de 100% para mejor control */
+    display: flex;
+    align-items: center;
 }
 
 .nav-toggle-label span,
@@ -150,27 +169,34 @@ header {
     position: absolute;
 }
 
-.nav-toggle-label span::before { bottom: 7px; }
-.nav-toggle-label span::after { top: 7px; }
+.nav-toggle-label span::before {
+    bottom: 7px;
+}
 
-.nav-toggle:checked + .nav-toggle-label span {
+.nav-toggle-label span::after {
+    top: 7px;
+}
+
+.nav-toggle:checked+.nav-toggle-label span {
     background: transparent;
 }
 
-.nav-toggle:checked + .nav-toggle-label span::before {
+.nav-toggle:checked+.nav-toggle-label span::before {
     transform: rotate(45deg);
     bottom: 0;
 }
 
-.nav-toggle:checked + .nav-toggle-label span::after {
+.nav-toggle:checked+.nav-toggle-label span::after {
     transform: rotate(-45deg);
     top: 0;
 }
 
 .logo {
-    padding-top: 5px;
-    color: var(--letras);
-    font-size: 30px;
+    padding-top: 0; /* Quitamos el padding que lo tiraba hacia abajo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
 }
 
 .logo:hover {
@@ -179,11 +205,25 @@ header {
 }
 
 @keyframes zigzag {
-    0% { transform: scale(1.1) translate(0, 0) rotate(0deg); }
-    20% { transform: scale(1.1) translate(-6px, -4px) rotate(-4deg); }
-    50% { transform: scale(1.1) translate(6px, 4px) rotate(4deg); }
-    80% { transform: scale(1.1) translate(-3px, -2px) rotate(-2deg); }
-    100% { transform: scale(1.1) translate(0, 0) rotate(0deg); }
+    0% {
+        transform: scale(1.1) translate(0, 0) rotate(0deg);
+    }
+
+    20% {
+        transform: scale(1.1) translate(-6px, -4px) rotate(-4deg);
+    }
+
+    50% {
+        transform: scale(1.1) translate(6px, 4px) rotate(4deg);
+    }
+
+    80% {
+        transform: scale(1.1) translate(-3px, -2px) rotate(-2deg);
+    }
+
+    100% {
+        transform: scale(1.1) translate(0, 0) rotate(0deg);
+    }
 }
 
 nav {
@@ -223,19 +263,17 @@ nav a:hover {
     color: var(--white);
 }
 
-.nav-toggle:checked ~ nav {
+.nav-toggle:checked~nav {
     transform: scaleY(1);
 }
 
-.nav-toggle:checked ~ nav a {
+.nav-toggle:checked~nav a {
     opacity: 1;
     transition: opacity 250ms ease-in-out 250ms;
 }
 
-/* ========================================
-   HERO SECTION
-======================================== */
 .hero {
+    background-image: url('assets/WebPages/fondo-hero.png');
     position: relative;
     min-height: 100vh;
     width: 100%;
@@ -244,8 +282,6 @@ nav a:hover {
     justify-content: center;
     align-items: center;
     padding: 120px 20px 80px;
-    background-image: url('imags/png prueba.png') center/cover no-repeat;
-    /* background: linear-gradient(135deg, var(--pastel-pink) 0%, var(--pink-light) 100%); */
     text-align: center;
     overflow: hidden;
 }
@@ -254,6 +290,10 @@ nav a:hover {
     position: relative;
     z-index: 2;
     max-width: 900px;
+    width: 100%;
+    /* OBLIGATORIO: Para que no supere el ancho de la pantalla */
+    padding: 0 15px;
+    /* Margen interno de seguridad */
 }
 
 .hero-greeting {
@@ -275,10 +315,24 @@ nav a:hover {
     opacity: 0.8;
 }
 
+.hero-cta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
 
 @keyframes float {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-20px) rotate(5deg); }
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-20px) rotate(5deg);
+    }
 }
 
 .key {
@@ -288,29 +342,159 @@ nav a:hover {
     transition: transform 0.2s;
 }
 
-@keyframes pressDown1 { 30%, 40%, 100% { transform: translateY(0); } 35% { transform: translateY(10px); } }
-@keyframes pressDown2 { 70%, 80%, 100% { transform: translateY(0); } 75% { transform: translateY(10px); } }
-@keyframes pressDown3 { 30%, 40%, 100% { transform: translateY(0); } 35% { transform: translateY(10px); } }
-@keyframes pressDown4 { 40%, 50%, 100% { transform: translateY(0); } 45% { transform: translateY(10px); } }
-@keyframes pressDown5 { 20%, 30%, 100% { transform: translateY(0); } 25% { transform: translateY(10px); } }
-@keyframes pressDown6 { 60%, 70%, 100% { transform: translateY(0); } 65% { transform: translateY(10px); } }
-@keyframes pressDown7 { 10%, 20%, 100% { transform: translateY(0); } 15% { transform: translateY(10px); } }
-@keyframes pressDown8 { 35%, 45%, 100% { transform: translateY(0); } 40% { transform: translateY(10px); } }
-@keyframes pressDown9 { 50%, 60%, 100% { transform: translateY(0); } 55% { transform: translateY(10px); } }
+@keyframes pressDown1 {
 
-.key:nth-child(1) { animation: pressDown1 2s infinite; }
-.key:nth-child(2) { animation: pressDown2 3s infinite; }
-.key:nth-child(3) { animation: pressDown3 4s infinite; }
-.key:nth-child(4) { animation: pressDown4 2.5s infinite; }
-.key:nth-child(5) { animation: pressDown5 2.5s infinite; }
-.key:nth-child(6) { animation: pressDown6 3.5s infinite; }
-.key:nth-child(7) { animation: pressDown7 2.2s infinite; }
-.key:nth-child(8) { animation: pressDown8 3.2s infinite; }
-.key:nth-child(9) { animation: pressDown9 2.8s infinite; }
+    30%,
+    40%,
+    100% {
+        transform: translateY(0);
+    }
 
-/* ========================================
-   SECTION HEADERS
-======================================== */
+    35% {
+        transform: translateY(10px);
+    }
+}
+
+@keyframes pressDown2 {
+
+    70%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    75% {
+        transform: translateY(10px);
+    }
+}
+
+@keyframes pressDown3 {
+
+    30%,
+    40%,
+    100% {
+        transform: translateY(0);
+    }
+
+    35% {
+        transform: translateY(10px);
+    }
+}
+
+@keyframes pressDown4 {
+
+    40%,
+    50%,
+    100% {
+        transform: translateY(0);
+    }
+
+    45% {
+        transform: translateY(10px);
+    }
+}
+
+@keyframes pressDown5 {
+
+    20%,
+    30%,
+    100% {
+        transform: translateY(0);
+    }
+
+    25% {
+        transform: translateY(10px);
+    }
+}
+
+@keyframes pressDown6 {
+
+    60%,
+    70%,
+    100% {
+        transform: translateY(0);
+    }
+
+    65% {
+        transform: translateY(10px);
+    }
+}
+
+@keyframes pressDown7 {
+
+    10%,
+    20%,
+    100% {
+        transform: translateY(0);
+    }
+
+    15% {
+        transform: translateY(10px);
+    }
+}
+
+@keyframes pressDown8 {
+
+    35%,
+    45%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(10px);
+    }
+}
+
+@keyframes pressDown9 {
+
+    50%,
+    60%,
+    100% {
+        transform: translateY(0);
+    }
+
+    55% {
+        transform: translateY(10px);
+    }
+}
+
+.key:nth-child(1) {
+    animation: pressDown1 2s infinite;
+}
+
+.key:nth-child(2) {
+    animation: pressDown2 3s infinite;
+}
+
+.key:nth-child(3) {
+    animation: pressDown3 4s infinite;
+}
+
+.key:nth-child(4) {
+    animation: pressDown4 2.5s infinite;
+}
+
+.key:nth-child(5) {
+    animation: pressDown5 2.5s infinite;
+}
+
+.key:nth-child(6) {
+    animation: pressDown6 3.5s infinite;
+}
+
+.key:nth-child(7) {
+    animation: pressDown7 2.2s infinite;
+}
+
+.key:nth-child(8) {
+    animation: pressDown8 3.2s infinite;
+}
+
+.key:nth-child(9) {
+    animation: pressDown9 2.8s infinite;
+}
+
 .section-header {
     text-align: center;
     margin-bottom: 50px;
@@ -334,9 +518,6 @@ nav a:hover {
     border-radius: 2px;
 }
 
-/* ========================================
-   ABOUT SECTION
-======================================== */
 .about {
     padding: 80px 20px;
     max-width: 1200px;
@@ -384,9 +565,6 @@ nav a:hover {
     border-radius: 2px;
 }
 
-/* ========================================
-   CARDS
-======================================== */
 .cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -450,9 +628,13 @@ nav a:hover {
     padding: 20px;
 }
 
-/* ========================================
-   TIMELINE
-======================================== */
+#repositorios .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 250px;
+}
+
 .timeline {
     position: relative;
     padding-left: 30px;
@@ -510,9 +692,6 @@ nav a:hover {
     opacity: 0.8;
 }
 
-/* ========================================
-   SKILLS GRID
-======================================== */
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -558,75 +737,103 @@ nav a:hover {
     color: var(--letras);
 }
 
-/* ========================================
-   CAROUSEL (Skills)
-======================================== */
 .carousel-container {
-    padding: 60px 20px;
-    max-width: 1000px;
-    margin: 0 auto;
+    padding-top: 60px;
 }
 
-.carousel-section {
-    padding: 30px 0;
-    border-bottom: 2px solid var(--pink-medio);
+.left {
+    border-bottom: var(--pink-medio) 3px double;
+    text-align: end;
 }
 
-.carousel-section:last-child {
-    border-bottom: none;
-}
-
-.carousel-section.left {
-    text-align: right;
-}
-
-.carousel-section.right {
-    text-align: left;
+.right {
+    text-align: start;
 }
 
 .carousel-title {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
+    margin: 20px 10px;
+    font-size: clamp(2rem, 8vw, 5rem);
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    color: var(--dark-pink);
 }
 
 .carousel {
     display: inline-block;
     position: relative;
-    height: 1.2em;
-    line-height: 1.2em;
+    height: 1em;
+    line-height: 1em;
+    width: 100%;
     overflow: hidden;
     vertical-align: middle;
 }
 
 .carousel-wrapper {
+    width: 100%;
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: 0;
-    animation: carousel 6s ease-in-out 1.5s infinite alternate;
+    top: 0px;
+    animation: carousel 5s ease-in-out 1.5s infinite alternate;
 }
 
 .carousel-item {
     display: block;
-    margin-bottom: 8px;
-    font-family: "Bebas Neue", sans-serif;
-    font-size: 2rem;
-    color: var(--pink-medio);
-    -webkit-text-stroke: 1px var(--dark-pink);
+    margin-bottom: 20px;
+    font-size: 30px;
+    -webkit-text-fill-color: var(--pink-medio);
 }
 
 @keyframes carousel {
-    0%, 10% { top: 0; }
-    20%, 30% { top: calc(-1.2em - 8px); }
-    40%, 50% { top: calc(-2.4em - 16px); }
-    60%, 70% { top: calc(-3.6em - 24px); }
-    80%, 90% { top: calc(-4.8em - 32px); }
-    95%, 100% { top: calc(-6em - 40px); }
+    0% {
+        top: calc(-0em + -4px);
+    }
+
+    10% {
+        top: calc(-0em + -4px);
+    }
+
+    20% {
+        top: calc(-1em + -22px);
+    }
+
+    30% {
+        top: calc(-1em + -22px);
+    }
+
+    40% {
+        top: calc(-2em + -42px);
+    }
+
+    50% {
+        top: calc(-2em + -42px);
+    }
+
+    60% {
+        top: calc(-3em + -60px);
+    }
+
+    70% {
+        top: calc(-3em + -60px);
+    }
+
+    80% {
+        top: calc(-4em + -78px);
+    }
+
+    90% {
+        top: calc(-4em + -78px);
+    }
+
+    95% {
+        top: calc(-5em + -96px);
+    }
+
+    100% {
+        top: calc(-5em + -96px);
+    }
 }
 
-/* ========================================
-   WEB DESIGNS SECTION
-======================================== */
 .web-section {
     padding: 80px 20px 20px;
     max-width: 1200px;
@@ -657,7 +864,8 @@ nav a:hover {
 
 .slide {
     min-width: calc(100% - 40px);
-    max-width: 900px;
+    width: 100vw;
+    max-width: 100%;
     background: var(--white);
     padding: 20px;
     border-radius: var(--radius-lg);
@@ -747,9 +955,6 @@ nav a:hover {
     opacity: 0.7;
 }
 
-/* ========================================
-   PROYECTOS SECTION
-======================================== */
 .proyectos {
     padding: 80px 20px;
     max-width: 1100px;
@@ -866,14 +1071,11 @@ nav a:hover {
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
 }
 
-.proyecto-texto.show ~ .proyecto-imagen .flecha-central {
+.proyecto-texto.show~.proyecto-imagen .flecha-central {
     opacity: 0;
     transform: translate(-50%, -50%) scale(0.8);
 }
 
-/* ========================================
-   CONTACT SECTION
-======================================== */
 .contact-section {
     padding: 80px 20px;
     max-width: 1000px;
@@ -978,9 +1180,6 @@ nav a:hover {
     background: var(--pastel-pink);
 }
 
-/* ========================================
-   FOOTER
-======================================== */
 footer {
     text-align: center;
     padding: 40px 20px;
@@ -1026,9 +1225,6 @@ footer p {
     color: var(--dark-pink);
 }
 
-/* ========================================
-   ANIMATIONS
-======================================== */
 .scroll-reveal {
     opacity: 0;
     transform: translateY(40px);
@@ -1040,10 +1236,21 @@ footer p {
     transform: translateY(0);
 }
 
-.fade-up { transform: translateY(40px); }
-.fade-left { transform: translateX(-40px); }
-.fade-right { transform: translateX(40px); }
-.zoom-soft { transform: scale(0.95); }
+.fade-up {
+    transform: translateY(40px);
+}
+
+.fade-left {
+    transform: translateX(-40px);
+}
+
+.fade-right {
+    transform: translateX(40px);
+}
+
+.zoom-soft {
+    transform: scale(0.95);
+}
 
 .fade-left.visible,
 .fade-right.visible {
@@ -1054,67 +1261,122 @@ footer p {
     transform: scale(1);
 }
 
-/* ========================================
-   RABBIT ANIMATION
-======================================== */
+html {
+    background: #040404;
+}
+
 .rabbit {
-    width: 4em;
-    height: 2.5em;
+    display: block;
+    max-height: 50px;
+    width: 5em;
+    height: 3em;
     background: #ffffff;
     border-radius: 70% 90% 60% 50%;
-    position: relative;
-    box-shadow: -0.2em 1em 0 -0.75em #bdb6ac;
-    transform: rotate(0deg) translate(-1.5em, 0);
+
+    /* FIX: Posicionamiento absoluto respecto al header */
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    /* Se mantiene estático a la derecha en móvil */
+
+    box-shadow: -0.2em 1em 0 -0.75em #b78e81;
+    transform: scale(0.5);
+    transform-origin: right center;
+
     animation: hop 1s infinite linear;
-    z-index: 1;
+    z-index: 1000;
+    /* Asegura que quede por encima del fondo del header */
 }
 
 .rabbit:before {
     content: "";
     position: absolute;
-    width: 0.8em;
-    height: 0.8em;
+    width: 1em;
+    height: 1em;
     background: white;
     border-radius: 100%;
-    top: 0.4em;
-    left: -0.2em;
+    top: 0.5em;
+    left: -0.3em;
     box-shadow:
-        3.5em 0.3em 0 -0.3em #bdb6ac,
-        0.4em 0.8em 0 white,
-        3.5em 0.8em 0 -0.25em white;
+        4em 0.4em 0 -0.35em #3f3334,
+        0.5em 1em 0 white,
+        4em 1em 0 -0.3em white,
+        4em 1em 0 -0.3em white,
+        4em 1em 0 -0.4em white;
     animation: kick 1s infinite linear;
 }
 
 .rabbit:after {
     content: "";
     position: absolute;
-    width: 0.6em;
-    height: 1.6em;
+    width: .75em;
+    height: 2em;
     background: white;
     border-radius: 50% 100% 0 0;
     transform: rotate(-30deg);
-    right: 0.8em;
-    top: -0.8em;
+    right: 1em;
+    top: -1em;
     border-top: 1px solid #f7f5f4;
     border-left: 1px solid #f7f5f4;
-    box-shadow: -0.4em 0em 0 -0.1em white;
+    box-shadow: -0.5em 0 0 -0.1em white;
 }
 
+/* FIX: Animación modificada para que salte en el lugar (eje Y) en móvil */
 @keyframes hop {
-    20% { transform: rotate(-10deg) translate(0.8em, -1.6em); box-shadow: -0.2em 2.5em 0 -0.9em #bdb6ac; }
-    40% { transform: rotate(10deg) translate(2.5em, -3.2em); box-shadow: -0.2em 2.8em 0 -1em #bdb6ac; }
-    60%, 75% { transform: rotate(0) translate(3.2em, 0); box-shadow: -0.2em 0.8em 0 -0.6em #bdb6ac; }
+
+    0%,
+    100% {
+        transform: rotate(0deg) scale(0.5);
+        box-shadow: -0.2em 1em 0 -0.75em #b78e81;
+    }
+
+    20% {
+        transform: rotate(-10deg) translateY(-1em) scale(0.5);
+        box-shadow: -0.2em 2em 0 -1em #b78e81;
+    }
+
+    40% {
+        transform: rotate(10deg) translateY(-1.5em) scale(0.5);
+        box-shadow: -0.2em 2.5em 0 -1.1em #b78e81;
+    }
+
+    60%,
+    75% {
+        transform: rotate(0deg) scale(0.5);
+        box-shadow: -0.2em 1em 0 -0.75em #b78e81;
+    }
 }
 
 @keyframes kick {
-    20%, 50% { box-shadow: 3.5em 0.3em 0 -0.3em #000000, 0.4em 1.2em 0 white, 3.5em 1.4em 0 -0.25em white; }
-    40% { box-shadow: 3.5em 0.3em 0 -0.3em #000000, 0.4em 1.6em 0 white, 3.5em 1.4em 0 -0.25em white, 3.6em 1.5em 0 -0.15em white; }
+
+    20%,
+    50% {
+        box-shadow:
+            4em 0.4em 0 -0.35em #3f3334,
+            0.5em 1.5em 0 white,
+            4em 1.75em 0 -0.3em white,
+            4em 1.75em 0 -0.3em white,
+            4em 1.9em 0 -0.4em white;
+    }
+
+    40% {
+        box-shadow:
+            4em 0.4em 0 -0.35em #3f3334,
+            0.5em 2em 0 white,
+            4em 1.75em 0 -0.3em white,
+            4.2em 1.75em 0 -0.2em white,
+            4.4em 1.9em 0 -0.2em white;
+    }
 }
 
-/* ========================================
-   RESPONSIVE DESIGN
-======================================== */
 @media screen and (min-width: 768px) {
+    .rabbit {
+        right: 40px;
+        top: 20px;
+        transform: scale(0.6);
+        /* Un poquito más grande en desktop si te gusta */
+    }
+
     .nav-toggle-label {
         display: none;
     }
@@ -1226,6 +1488,17 @@ footer p {
 }
 
 @media screen and (max-width: 767px) {
+
+    /* FIX 5: padding-top reducido en mobile */
+    .carousel-container {
+        padding-top: 30px;
+    }
+
+    .rabbit {
+        right: 15px;
+        top: 25px;
+    }
+
     .hero {
         padding: 100px 20px 60px;
     }
@@ -1238,22 +1511,39 @@ footer p {
         font-size: 1rem;
     }
 
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+
     .logo {
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
+        z-index: 1;
     }
 
     .section-header h1 {
         font-size: 2.5rem;
     }
 
+    /* FIX 6: timeline dot y linea reajustados en mobile */
     .timeline {
         padding-left: 25px;
     }
 
+    .timeline::before {
+        left: 6px;
+    }
+
     .timeline-item {
         padding-left: 15px;
+    }
+
+    .timeline-dot {
+        left: -22px;
     }
 
     .carousel-title {
@@ -1270,6 +1560,21 @@ footer p {
 
     .proyecto-texto h2 {
         font-size: 1.5rem;
+    }
+
+    .proyecto-texto {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .flecha-central {
+        display: none;
+    }
+
+    /* FIX 7: slides no rompen el viewport en mobile */
+    .slide {
+        min-width: calc(100vw - 60px);
+        max-width: calc(100vw - 60px);
     }
 
     .contact-card {
@@ -1294,8 +1599,16 @@ footer p {
         text-align: center;
     }
 
+    /* FIX 8: skills-grid no desborda */
     .skills-grid {
         grid-template-columns: repeat(2, 1fr);
+        max-width: 100%;
+    }
+
+    /* FIX 4: email no se corta */
+    .contact-item span {
+        font-size: 0.8rem;
+        word-break: break-all;
     }
 
     .social-links {
