@@ -1,17 +1,15 @@
 /* estilos.css - Selen Design Portfolio - Responsive Fixes */
 
 :root {
-    --pastel-pink: #fdf8f8;
-    --pink-light: #f5dddd;
-    --pink-soft: #f0e4e4;
-    --pink-claro: #f5dddd;
-    --pink-medio: #efc7c7;
-    --pink-comun: #e8b1b1;
-    --pink-ocuro: #e29b9b;
-    --dark-pink: #db8585;
-    --letras: #271818;
-    --white: #ffffff;
-    --gray-light: #f9f5f5;
+    
+    --black-cherry: #6f1417;
+    --rosy-taupe: #b5868a;
+    --alabaster-grey: #eae9e7;
+    --platinum: #eeeeed;
+    --champagne-gold: #D6BD9F;
+    --coffee-bean: #271818;
+
+
     --shadow-soft: 0 4px 20px rgba(226, 155, 155, 0.15);
     --shadow-medium: 0 8px 30px rgba(226, 155, 155, 0.2);
     --transition: all 0.3s ease;
@@ -43,8 +41,8 @@ html {
 body {
     margin: 0;
     font-family: 'Poppins', 'Helvetica Neue', sans-serif;
-    background-color: var(--pastel-pink);
-    color: var(--letras);
+    background-color: var(--alabaster-grey);
+    color: var(--black-cherry);
     line-height: 1.6;
     /* FIX: evita scroll horizontal no deseado */
     overflow-x: hidden;
@@ -59,7 +57,7 @@ h5 {
     font-family: "Bebas Neue", sans-serif;
     font-weight: 400;
     font-style: normal;
-    color: var(--dark-pink);
+    color: var(--black-cherry);
     margin: 0;
 }
 
@@ -78,7 +76,7 @@ h3 {
 p {
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
-    color: var(--letras);
+    color: var(--coffee-bean);
     margin: 0;
     font-size: 0.95rem;
 }
@@ -97,34 +95,35 @@ p {
 }
 
 .btn-primary {
-    background: var(--dark-pink);
-    color: var(--white);
+    background: var(--rosy-taupe);
+    color: var(--alabaster-grey);
 }
 
 .btn-primary:hover {
-    background: var(--pink-ocuro);
+    background: var(--champagne-gold);
     transform: translateY(-2px);
     box-shadow: var(--shadow-medium);
 }
 
 .btn-secondary {
     background: transparent;
-    color: var(--dark-pink);
-    border: 2px solid var(--dark-pink);
+    color: var(--black-cherry);
+    border: 2px solid var(--black-cherry);
 }
 
 .btn-secondary:hover {
-    background: var(--dark-pink);
-    color: var(--white);
+    background: var(--black-cherry);
+    color: var(--alabaster-grey);
 }
 
-header {background-color: var(--pink-medio);
+header {
+    background-color: var(--platinum);
     position: fixed;
     z-index: 900;
     width: 100%;
     height: 80px;
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
-    
+    border-bottom: 2px solid var(--alabaster-grey);
     /* NUEVO: Alineación limpia en móviles */
     display: flex;
     justify-content: center; /* Centra el logo en el medio */
@@ -155,7 +154,7 @@ header {background-color: var(--pink-medio);
 .nav-toggle-label span::before,
 .nav-toggle-label span::after {
     display: block;
-    background: var(--dark-pink);
+    background: var(--black-cherry);
     height: 3px;
     width: 1.5em;
     border-radius: 2px;
@@ -235,7 +234,7 @@ nav {
     transform: scaleY(0);
     transform-origin: top;
     transition: transform 300ms ease-in-out;
-    background: var(--pink-medio);
+    background: var(--platinum);
 }
 
 nav ul {
@@ -250,7 +249,7 @@ nav li {
 
 nav a {
     text-decoration: none;
-    color: var(--letras);
+    color: var(--coffee-bean);
     font-weight: 500;
     font-size: 1rem;
     text-transform: uppercase;
@@ -260,7 +259,7 @@ nav a {
 }
 
 nav a:hover {
-    color: var(--white);
+    color: var(--champagne-gold);
 }
 
 .nav-toggle:checked~nav {
@@ -298,7 +297,7 @@ nav a:hover {
 
 .hero-greeting {
     font-size: 1.1rem;
-    color: var(--pink-ocuro);
+    color: var(--champagne-gold);
     margin-bottom: 10px;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -310,7 +309,7 @@ nav a:hover {
 
 .hero-subtitle {
     font-size: 1.2rem;
-    color: var(--letras);
+    color: var(--coffee-bean);
     margin-bottom: 30px;
     opacity: 0.8;
 }
@@ -503,7 +502,7 @@ nav a:hover {
 .section-tag {
     display: inline-block;
     font-size: 0.8rem;
-    color: var(--dark-pink);
+    color: var(--rosy-taupe);
     text-transform: uppercase;
     letter-spacing: 3px;
     margin-bottom: 10px;
@@ -513,7 +512,7 @@ nav a:hover {
 .section-line {
     width: 60px;
     height: 3px;
-    background: var(--dark-pink);
+    background: var(--rosy-taupe);
     margin: 15px auto 0;
     border-radius: 2px;
 }
@@ -536,7 +535,7 @@ nav a:hover {
 }
 
 .about-intro strong {
-    color: var(--dark-pink);
+    color: var(--rosy-taupe);
 }
 
 .container {
@@ -561,7 +560,7 @@ nav a:hover {
     left: 0;
     width: 40px;
     height: 3px;
-    background: var(--pink-medio);
+    background: var(--champagne-gold);
     border-radius: 2px;
 }
 
@@ -572,7 +571,7 @@ nav a:hover {
 }
 
 .card {
-    background: var(--white);
+    background: var(--alabaster-grey);
     border-radius: var(--radius-md);
     padding: 24px;
     display: flex;
@@ -592,7 +591,6 @@ nav a:hover {
     flex-shrink: 0;
     width: 50px;
     height: 50px;
-    background: var(--pink-light);
     border-radius: var(--radius-sm);
     display: flex;
     align-items: center;
@@ -611,12 +609,12 @@ nav a:hover {
 
 .card-body h3 {
     margin-bottom: 8px;
-    color: var(--pink-ocuro);
+    color: var(--rosy-taupe);
 }
 
 .card-body p {
     font-size: 0.85rem;
-    color: var(--letras);
+    color: var(--rosy-taupe);
     opacity: 0.8;
 }
 
@@ -647,7 +645,7 @@ nav a:hover {
     top: 0;
     bottom: 0;
     width: 2px;
-    background: var(--pink-medio);
+    background: var(--champagne-gold);
 }
 
 .timeline-item {
@@ -662,13 +660,12 @@ nav a:hover {
     top: 5px;
     width: 14px;
     height: 14px;
-    background: var(--dark-pink);
+    background: var(--champagne-gold);
     border-radius: 50%;
-    border: 3px solid var(--pastel-pink);
 }
 
 .timeline-content {
-    background: var(--white);
+    background: var(--platinum);
     padding: 20px;
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-soft);
@@ -676,7 +673,7 @@ nav a:hover {
 
 .timeline-date {
     font-size: 0.75rem;
-    color: var(--dark-pink);
+    color: var(--champagne-gold);
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -684,7 +681,7 @@ nav a:hover {
 
 .timeline-content h3 {
     margin: 8px 0;
-    color: var(--pink-ocuro);
+    color: var(--black-cherry);
 }
 
 .timeline-content p {
@@ -701,7 +698,7 @@ nav a:hover {
 }
 
 .skill-item {
-    background: var(--white);
+    background: var(--platinum);
     padding: 25px 15px;
     border-radius: var(--radius-md);
     text-align: center;
@@ -718,7 +715,6 @@ nav a:hover {
     width: 50px;
     height: 50px;
     margin: 0 auto 12px;
-    background: var(--pink-light);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -734,7 +730,7 @@ nav a:hover {
 .skill-item span {
     font-size: 0.85rem;
     font-weight: 500;
-    color: var(--letras);
+    color: var(--rosy-taupe);
 }
 
 .carousel-container {
@@ -742,7 +738,7 @@ nav a:hover {
 }
 
 .left {
-    border-bottom: var(--pink-medio) 3px double;
+    border-bottom: var(--champagne-gold) 3px double;
     text-align: end;
 }
 
@@ -755,7 +751,7 @@ nav a:hover {
     font-size: clamp(2rem, 8vw, 5rem);
     font-family: "Bebas Neue", sans-serif;
     font-weight: 400;
-    color: var(--dark-pink);
+    color: var(--black-cherry);
 }
 
 .carousel {
@@ -781,7 +777,7 @@ nav a:hover {
     display: block;
     margin-bottom: 20px;
     font-size: 30px;
-    -webkit-text-fill-color: var(--pink-medio);
+    -webkit-text-fill-color: var(--champagne-gold);
 }
 
 @keyframes carousel {
@@ -866,7 +862,7 @@ nav a:hover {
     min-width: calc(100% - 40px);
     width: 100vw;
     max-width: 100%;
-    background: var(--white);
+    background: var(--platinum);
     padding: 20px;
     border-radius: var(--radius-lg);
     flex-shrink: 0;
@@ -909,7 +905,7 @@ nav a:hover {
 .slide-tag {
     display: inline-block;
     font-size: 0.7rem;
-    color: var(--dark-pink);
+    color: var(--black-cherry);
     text-transform: uppercase;
     letter-spacing: 2px;
     margin-bottom: 8px;
@@ -918,13 +914,13 @@ nav a:hover {
 
 .slide-text h2 {
     font-size: 1.5rem;
-    color: var(--pink-ocuro);
+    color: var(--black-cherry);
     margin-bottom: 10px;
 }
 
 .slide-text p {
     font-size: 0.85rem;
-    color: var(--letras);
+    color: var(--coffee-bean);
     opacity: 0.8;
     margin-bottom: 15px;
 }
@@ -938,8 +934,8 @@ nav a:hover {
 .slide-tech span {
     font-size: 0.7rem;
     padding: 4px 12px;
-    background: var(--pink-light);
-    color: var(--dark-pink);
+    background: var(--champagne-gold);
+    color: var(--platinum);
     border-radius: 20px;
     font-weight: 500;
 }
@@ -951,7 +947,7 @@ nav a:hover {
 
 .carousel-hint {
     font-size: 0.8rem;
-    color: var(--pink-ocuro);
+    color: var(--rosy-taupe);
     opacity: 0.7;
 }
 
@@ -969,7 +965,7 @@ nav a:hover {
     gap: 30px;
     margin-bottom: 80px;
     padding: 30px;
-    background: var(--white);
+    background: var(--platinum);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-soft);
 }
@@ -995,14 +991,14 @@ nav a:hover {
     letter-spacing: 2px;
     margin-bottom: 10px;
     font-weight: 600;
-    background: var(--pink-light);
+    background: var(--champagne-gold);
     padding: 5px 15px;
     border-radius: 20px;
 }
 
 .proyecto-texto h2 {
     font-size: 1.8rem;
-    color: var(--pink-ocuro);
+    color: var(--black-cherry);
     margin-bottom: 15px;
     line-height: 1.2;
 }
@@ -1023,8 +1019,8 @@ nav a:hover {
 .proyecto-tech span {
     font-size: 0.75rem;
     padding: 5px 15px;
-    background: var(--pink-light);
-    color: var(--dark-pink);
+    background: var(--champagne-gold);
+    color: var(--platinum);
     border-radius: 20px;
     font-weight: 500;
 }
@@ -1064,10 +1060,9 @@ nav a:hover {
     z-index: 10;
 }
 
-.flecha-central svg {
+.flecha-central img {
     width: 70px;
     height: 70px;
-    fill: var(--dark-pink);
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
 }
 
@@ -1094,7 +1089,7 @@ nav a:hover {
 }
 
 .contact-subtitle {
-    color: var(--pink-ocuro);
+    color: var(--rosy-taupe);
     margin-bottom: 30px;
 }
 
@@ -1112,12 +1107,11 @@ nav a:hover {
 .contact-icon {
     width: 40px;
     height: 40px;
-    background: var(--pink-light);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--dark-pink);
+    color: var(--rosy-taupe);
     flex-shrink: 0;
 }
 
@@ -1133,7 +1127,7 @@ nav a:hover {
 .social-link {
     width: 45px;
     height: 45px;
-    background: var(--white);
+    background: var(--platinum);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -1153,7 +1147,7 @@ nav a:hover {
 }
 
 .contact-card {
-    background: linear-gradient(135deg, var(--pink-medio) 0%, var(--pink-comun) 100%);
+    background: var(--rosy-taupe);
     border-radius: var(--radius-lg);
     padding: 40px 30px;
     text-align: center;
@@ -1161,29 +1155,31 @@ nav a:hover {
 
 .contact-card h3 {
     font-size: 1.8rem;
-    color: var(--white);
+    color: var(--platinum);
     margin-bottom: 15px;
 }
 
 .contact-card p {
-    color: var(--white);
+    color: var(--platinum);
     opacity: 0.9;
     margin-bottom: 25px;
 }
 
 .contact-card .btn-primary {
-    background: var(--white);
-    color: var(--dark-pink);
+    background: var(--platinum);
+    color: var(--rosy-taupe);
 }
 
 .contact-card .btn-primary:hover {
-    background: var(--pastel-pink);
+    
+    color: var(--platinum);
+    background: var(--champagne-gold);
 }
 
 footer {
     text-align: center;
     padding: 40px 20px;
-    background-color: var(--pink-medio);
+    background-color: var(--rosy-taupe);
 }
 
 .footer-content {
@@ -1198,7 +1194,7 @@ footer {
 .footer-logo span {
     font-family: "Bebas Neue", sans-serif;
     font-size: 1.8rem;
-    color: var(--dark-pink);
+    color: var(--platinum);
 }
 
 footer p {
@@ -1215,14 +1211,14 @@ footer p {
 }
 
 .footer-links a {
-    color: var(--letras);
+    color: var(--platinum);
     text-decoration: none;
     font-size: 0.85rem;
     transition: color 0.3s ease;
 }
 
 .footer-links a:hover {
-    color: var(--dark-pink);
+    color: var(--black-cherry);
 }
 
 .scroll-reveal {
@@ -1259,10 +1255,6 @@ footer p {
 
 .zoom-soft.visible {
     transform: scale(1);
-}
-
-html {
-    background: #040404;
 }
 
 .rabbit {
