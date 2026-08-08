@@ -12,6 +12,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600&display=swap"
     rel="stylesheet">
+  <link rel="icon" type="image/png" href="assets/logotipo.png">
   <link rel="stylesheet" href="estilos.css" />
 </head>
 
@@ -20,7 +21,11 @@
     <div class="logo scroll-reveal fade-left">
       <!-- <img class="logo" src="assets/Logo.jpg" alt="Logo de Selen Design"> -->
       <a href="#portafolio">
-        <div class="rabbit"></div>
+<!-- Conejo de logotipo -->
+        <div class="rabbit">
+          <div class="rabbit-ears"></div>
+          <div class="rabbit-tail"></div>
+        </div>
       </a>
     </div>
     <input type="checkbox" id="nav-toggle" class="nav-toggle">
@@ -176,7 +181,7 @@
               <p>Java, Python, C++</p>
             </div>
           </div>
-          <div class="card card-study scroll-reveal fade-left">
+          <!-- <div class="card card-study scroll-reveal fade-left">
             <div class="card-icon">
               <img src="assets/logos-icons/idiomas.png" alt="Idiomas">
             </div>
@@ -184,7 +189,7 @@
               <h3>Idiomas</h3>
               <p>Japonés (2020 - 2023)</p>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -591,6 +596,83 @@
         });
       })
       .catch(error => console.error('Error al obtener los repositorios:', error));
+
+      
+document.addEventListener("DOMContentLoaded", () => {
+  const rabbit = document.querySelector('.rabbit');
+  let clickCount = 0;
+  let clickTimeout;
+
+  // Número de clics rápidos necesarios
+  const CLICK_THRESHOLD = 5;
+  // Tiempo máximo entre clics (en ms)
+  const TIMEOUT_MS = 800;
+  // Cuántos corazones salen en la ráfaga
+  const HEART_BURST_COUNT = 12;
+
+  if (rabbit) {
+    // En móviles modernos, 'click' funciona bien, pero 'touchstart' es más rápido.
+    // Usamos manipulation en CSS para eliminar el retraso de 300ms del click.
+    rabbit.addEventListener('click', (e) => {
+      handleSpamClick(e);
+    });
+  }
+
+  function handleSpamClick(e) {
+    clickCount++;
+
+    clearTimeout(clickTimeout);
+
+    clickTimeout = setTimeout(() => {
+      clickCount = 0;
+    }, TIMEOUT_MS);
+
+    if (clickCount >= CLICK_THRESHOLD) {
+      // Obtenemos la posición del clic o toque
+      const x = e.clientX;
+      const y = e.clientY;
+
+      spawnHeartBurst(x, y);
+      clickCount = 0; // Reiniciar tras la ráfaga
+    }
+  }
+
+  function spawnHeartBurst(startX, startY) {
+    // Creamos múltiples corazones con pequeñas variaciones de tiempo
+    for (let i = 0; i < HEART_BURST_COUNT; i++) {
+      // Un pequeño retraso entre cada corazón hace que parezca una fuente
+      setTimeout(() => {
+        createOneHeart(startX, startY);
+      }, i * 30);
+    }
+  }
+
+  function createOneHeart(x, y) {
+    const heart = document.createElement('div');
+    heart.classList.add('heart');
+    heart.innerText = '❤️';
+
+    // Posición inicial
+    heart.style.left = `${x}px`;
+    heart.style.top = `${y}px`;
+
+    // --- CÁLCULOS ALEATORIOS PARA LA RÁFAGA ---
+    const tx = (Math.random() - 0.5) * 60; // Dispersión horizontal (-30vw a 30vw)
+    const ty = (Math.random() * -50) - 10; // Dispersión vertical siempre hacia arriba (-10vh a -60vh)
+    // Rotación aleatoria final
+    const tr = (Math.random() - 0.5) * 180; // (-90deg a 90deg)
+
+    heart.style.setProperty('--tx', `${tx}vw`);
+    heart.style.setProperty('--ty', `${ty}vh`);
+    heart.style.setProperty('--tr', `${tr}deg`);
+
+    document.body.appendChild(heart);
+
+    heart.addEventListener('animationend', () => {
+      heart.remove();
+    });
+  }
+});
   </script>
 
 </body>

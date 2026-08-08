@@ -1,8 +1,7 @@
 /* estilos.css - Selen Design Portfolio - Responsive Fixes */
-/* ACTUALIZACION 16/6/2026 */
+/* ACTUALIZACION 8/8/2026 */
 
 :root {
-    
     --black-cherry: #6f1417;
     --rosy-taupe: #b5868a;
     --alabaster-grey: #eae9e7;
@@ -30,7 +29,8 @@ html,
 body {
     width: 100%;
     max-width: 100%;
-    overflow-x: hidden; /* Oculta fulminantemente la franja negra */
+    overflow-x: hidden;
+    /* Oculta fulminantemente la franja negra */
 
 }
 
@@ -127,7 +127,8 @@ header {
     border-bottom: 2px solid var(--alabaster-grey);
     /* NUEVO: Alineación limpia en móviles */
     display: flex;
-    justify-content: center; /* Centra el logo en el medio */
+    justify-content: center;
+    /* Centra el logo en el medio */
     align-items: center;
     padding: 0 20px;
 }
@@ -192,38 +193,12 @@ header {
 }
 
 .logo {
-    padding-top: 0; /* Quitamos el padding que lo tiraba hacia abajo */
+    padding-top: 0;
+    /* Quitamos el padding que lo tiraba hacia abajo */
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100%;
-}
-
-.logo:hover {
-    animation: zigzag 520ms ease-in-out 1;
-    transform-origin: center;
-}
-
-@keyframes zigzag {
-    0% {
-        transform: scale(1.1) translate(0, 0) rotate(0deg);
-    }
-
-    20% {
-        transform: scale(1.1) translate(-6px, -4px) rotate(-4deg);
-    }
-
-    50% {
-        transform: scale(1.1) translate(6px, 4px) rotate(4deg);
-    }
-
-    80% {
-        transform: scale(1.1) translate(-3px, -2px) rotate(-2deg);
-    }
-
-    100% {
-        transform: scale(1.1) translate(0, 0) rotate(0deg);
-    }
 }
 
 nav {
@@ -1172,7 +1147,7 @@ nav a:hover {
 }
 
 .contact-card .btn-primary:hover {
-    
+
     color: var(--platinum);
     background: var(--champagne-gold);
 }
@@ -1259,106 +1234,193 @@ footer p {
 }
 
 .rabbit {
-    display: block;
-    max-height: 50px;
     width: 5em;
     height: 3em;
     background: #ffffff;
     border-radius: 70% 90% 60% 50%;
-
-    /* FIX: Posicionamiento absoluto respecto al header */
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    /* Se mantiene estático a la derecha en móvil */
-
+    position: relative;
     box-shadow: -0.2em 1em 0 -0.75em #b78e81;
-    transform: scale(0.5);
-    transform-origin: right center;
-
-    animation: hop 1s infinite linear;
-    z-index: 1000;
-    /* Asegura que quede por encima del fondo del header */
+    transform: rotate(0deg) translate(-2em, 0);
+    z-index: 1;
 }
 
 .rabbit:before {
     content: "";
     position: absolute;
-    width: 1em;
-    height: 1em;
-    background: white;
+    width: 0.3em;
+    height: 0.3em;
+    background: #3f3334;
     border-radius: 100%;
-    top: 0.5em;
-    left: -0.3em;
-    box-shadow:
-        4em 0.4em 0 -0.35em #3f3334,
-        0.5em 1em 0 white,
-        4em 1em 0 -0.3em white,
-        4em 1em 0 -0.3em white,
-        4em 1em 0 -0.4em white;
-    animation: kick 1s infinite linear;
+    top: 1.1em;
+    left: 4em;
+    z-index: 2;
+    overflow: hidden;
 }
 
-.rabbit:after {
-    content: "";
+.rabbit-ears {
     position: absolute;
-    width: .75em;
+    width: 0.75em;
     height: 2em;
     background: white;
     border-radius: 50% 100% 0 0;
     transform: rotate(-30deg);
-    right: 1em;
+    right: 1.2em;
     top: -1em;
     border-top: 1px solid #f7f5f4;
     border-left: 1px solid #f7f5f4;
-    box-shadow: -0.5em 0 0 -0.1em white;
+    box-shadow: -0.5em 0em 0 -0.1em white;
+    transform-origin: bottom center;
+    animation: ear-twitch 2s infinite ease-in-out;
 }
 
-/* FIX: Animación modificada para que salte en el lugar (eje Y) en móvil */
-@keyframes hop {
+.rabbit-tail {
+    position: absolute;
+    width: 0.8em;
+    height: 0.8em;
+    background: white;
+    border-radius: 100%;
+    top: 1em;
+    left: -0.4em;
+    box-shadow: 0.1em 0.1em 0 -0.1em #f7f5f4;
+    transform-origin: right center;
+    animation: tail-wag 2s infinite ease-in-out;
+}
+
+@keyframes eye-blink {
 
     0%,
+    10%,
+    90%,
     100% {
-        transform: rotate(0deg) scale(0.5);
-        box-shadow: -0.2em 1em 0 -0.75em #b78e81;
+        transform: translateY(-100%);
     }
 
-    20% {
-        transform: rotate(-10deg) translateY(-1em) scale(0.5);
-        box-shadow: -0.2em 2em 0 -1em #b78e81;
-    }
-
-    40% {
-        transform: rotate(10deg) translateY(-1.5em) scale(0.5);
-        box-shadow: -0.2em 2.5em 0 -1.1em #b78e81;
-    }
-
+    20%,
+    30%,
+    40%,
+    50%,
     60%,
-    75% {
-        transform: rotate(0deg) scale(0.5);
-        box-shadow: -0.2em 1em 0 -0.75em #b78e81;
+    70%,
+    80% {
+        transform: translateY(-40%);
+    }
+
+    25%,
+    45%,
+    65% {
+        transform: translateY(-30%);
     }
 }
 
-@keyframes kick {
+@keyframes foot-scratch {
 
-    20%,
-    50% {
-        box-shadow:
-            4em 0.4em 0 -0.35em #3f3334,
-            0.5em 1.5em 0 white,
-            4em 1.75em 0 -0.3em white,
-            4em 1.75em 0 -0.3em white,
-            4em 1.9em 0 -0.4em white;
+    0%,
+    10%,
+    90%,
+    100% {
+        opacity: 0;
+        transform: scale(0.5) translate(1em, 1em);
     }
 
-    40% {
-        box-shadow:
-            4em 0.4em 0 -0.35em #3f3334,
-            0.5em 2em 0 white,
-            4em 1.75em 0 -0.3em white,
-            4.2em 1.75em 0 -0.2em white,
-            4.4em 1.9em 0 -0.2em white;
+    15% {
+        opacity: 1;
+        transform: scale(1) translate(0.3em, 0.5em);
+    }
+
+    20%,
+    30%,
+    40%,
+    50%,
+    60%,
+    70%,
+    80% {
+        transform: translate(0em, -2.5em);
+    }
+
+    25%,
+    35%,
+    45%,
+    55%,
+    65%,
+    75% {
+        transform: translate(-0.2em, -2.7em);
+    }
+}
+
+@keyframes ear-twitch {
+
+    0%,
+    10%,
+    90%,
+    100% {
+        transform: rotate(-30deg);
+    }
+
+    15% {
+        transform: rotate(-25deg);
+    }
+
+    20%,
+    30%,
+    40%,
+    50%,
+    60%,
+    70%,
+    80% {
+        transform: rotate(-20deg) skewY(5deg);
+    }
+
+    25%,
+    45%,
+    65% {
+        transform: rotate(-23deg) skewY(-3deg);
+    }
+}
+
+@keyframes tail-wag {
+
+    0%,
+    10%,
+    90%,
+    100% {
+        transform: rotate(0deg);
+    }
+
+    15%,
+    35%,
+    55%,
+    75% {
+        transform: rotate(-10deg);
+    }
+
+    25%,
+    45%,
+    65%,
+    85% {
+        transform: rotate(10deg);
+    }
+}
+
+/* --- NUEVO CSS PARA LA RÁFAGA DE CORAZONES --- */
+.heart {
+    position: fixed;
+    font-size: 1rem;
+    pointer-events: none;
+    z-index: 10;
+    will-change: transform, opacity;
+    animation: burst 1s ease-out forwards;
+}
+
+/* Animación de ráfaga: sube, se dispersa aleatoriamente y desaparece */
+@keyframes burst {
+    0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1) translate(0, 0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(1.4) translate(var(--tx), var(--ty)) rotate(var(--tr));
     }
 }
 
@@ -1367,7 +1429,6 @@ footer p {
         right: 40px;
         top: 20px;
         transform: scale(0.6);
-        /* Un poquito más grande en desktop si te gusta */
     }
 
     .nav-toggle-label {
@@ -1482,13 +1543,15 @@ footer p {
 
 @media screen and (max-width: 767px) {
 
+
     /* FIX 5: padding-top reducido en mobile */
     .carousel-container {
         padding-top: 30px;
     }
 
     .rabbit {
-        right: 15px;
+        position: absolute;
+        align-content: right;
         top: 25px;
     }
 
@@ -1505,10 +1568,12 @@ footer p {
     }
 
     header {
+        position: fixed;
         display: flex;
         align-items: center;
         justify-content: center;
-        position: relative;
+
+
     }
 
     .logo {
