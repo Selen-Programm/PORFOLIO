@@ -916,6 +916,165 @@ nav a:hover {
     font-weight: 500;
 }
 
+/* Navegación del carrusel - PUBLICIDADES */
+.flyers-section {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.divider {
+    width: 50px;
+    height: 3px;
+    background-color: var(--champagne-gold);
+    margin: 0 auto 30px auto;
+    border-radius: 2px;
+}
+
+.carousel-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding-bottom: 15px;
+    -webkit-overflow-scrolling: touch;
+}
+
+.carousel-container::-webkit-scrollbar {
+    height: 6px;
+}
+
+.carousel-container::-webkit-scrollbar-thumb {
+    background: var(--champagne-gold);
+    border-radius: 10px;
+}
+
+.carousel-track {
+    display: flex;
+    gap: 25px;
+    padding: 10px 5px;
+}
+
+/* Tarjeta Principal */
+.flyer-card {
+    flex: 0 0 100%;
+    max-width: 600px;
+    min-height: 400px;
+    scroll-snap-align: center;
+    background: var(--platinum);
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    text-align: left;
+    box-shadow: var(--shadow-medium);
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.card-image-wrapper {
+    position: relative;
+    flex: 1;
+    max-width: 320px;       /* Ancho del contenedor del flyer */
+    width: 100%;
+    height: 380px;          /* Proporción vertical tipo flyer (4:5 aprox) */
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.inner-image-slider {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.inner-image-slider::-webkit-scrollbar {
+    display: none;
+    /* Chrome/Safari */
+}
+
+.inner-image-slider img {
+    flex: 0 0 100%;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    scroll-snap-align: start;
+    display: block;
+}
+
+.image-badge {
+    position: absolute;
+    color: var(--platinum);
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 12px;
+    backdrop-filter: blur(4px);
+    pointer-events: none;
+}
+
+.card-content {
+    flex: 1.1;
+    padding: 20px 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-tag {
+    color: var(--rosy-taupe);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    margin-bottom: 6px;
+}
+
+.card-title {
+    color: var(--black-cherry);
+    font-size: 1.5rem;
+    margin: 0 0 10px 0;
+}
+
+.card-description {
+    color: var(--rosy-taupe);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.tags-group {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.tag {
+    background-color: var(--champagne-gold);
+    color: var(--platinum);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.scroll-hint {
+    color: var(--champagne-gold);
+    font-size: 0.85rem;
+    margin-top: 15px;
+}
+
+/* Responsivo para celulares */
+@media (max-width: 768px) {
+    .flyer-card {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .card-image-wrapper {
+        max-width: 100%;
+    }
+}
+
 .carousel-nav {
     text-align: center;
     margin-top: 20px;
