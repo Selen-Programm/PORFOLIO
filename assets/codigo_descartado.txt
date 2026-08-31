@@ -1,0 +1,80 @@
+
+  <section id="proyectos" class="proyectos scroll-reveal fade-up">
+    <div class="section-header">
+      <span class="section-tag">Trabajos</span>
+      <h1>Proyectos</h1>
+      <div class="section-line"></div>
+    </div>
+
+    <!-- Proyecto 1 -->
+    <div class="proyecto scroll-reveal zoom-soft">
+      <div class="proyecto-texto">
+        <span class="proyecto-tag">Web & Branding</span>
+        <h2>Página Web Personal<br>Comisiones Artísticas</h2>
+        <p>Diseño de logotipo, imagen y página web para comercio artístico. Disponible desde 2019. Página responsive con
+          base de datos SQL para administrar pedidos.</p>
+        <div class="proyecto-tech">
+          <span>HTML</span>
+          <span>CSS</span>
+          <span>SQL</span>
+        </div>
+      </div>
+      <div class="proyecto-imagen">
+        <div class="flecha-central" aria-hidden="true">
+          <!-- Aroow -->
+          <img src="assets/logos-icons/arrow.png" alt="Flecha indicando interacción" style="transform: rotate(-90deg)">
+        </div>
+        <div class="proyecto-img-wrapper scroll-reveal zoom-soft">
+          <img src="assets/proyecto-1.png" alt="Proyecto página web personal">
+        </div>
+      </div>
+    </div>
+
+    <!-- Proyecto 2 -->
+    <div class="proyecto proyecto-reverse scroll-reveal zoom-soft">
+      <div class="proyecto-texto">
+        <span class="proyecto-tag">Ilustración</span>
+        <h2>Comisiones Artísticas<br>Creación de Personajes</h2>
+        <p>Diseños basados en personajes ficticios de novelas de drama. Utilizando técnica de collage con imágenes
+          reales como base para crear personajes auténticos.</p>
+        <div class="proyecto-tech">
+          <span>Krita</span>
+          <span>SAI v2</span>
+          <span>Photoshop</span>
+        </div>
+      </div>
+      <div class="proyecto-imagen">
+        <div class="flecha-central" aria-hidden="true">
+          <!-- Aroow -->
+          <img src="assets/logos-icons/arrow.png" alt="Flecha indicando interacción" style="transform: rotate(-90deg)">
+        </div>
+        <div class="proyecto-img-wrapper scroll-reveal zoom-soft">
+          <img src="assets/proyecto-2.png" alt="Diseño de personajes">
+        </div>
+      </div>
+    </div>
+
+    <!-- Proyecto 3 -->
+    <div class="proyecto scroll-reveal zoom-soft">
+      <div class="proyecto-texto">
+        <span class="proyecto-tag">Branding</span>
+        <h2>Contenido Redes Sociales<br>Logotipos</h2>
+        <p>Diseño de logotipo e imagen. Contenido visual para redes sociales, diseñado para comercio. Disponible desde
+          2023.</p>
+        <div class="proyecto-tech">
+          <span>Illustrator</span>
+          <span>Photoshop</span>
+          <span>InDesign</span>
+        </div>
+      </div>
+      <div class="proyecto-imagen">
+        <div class="flecha-central" aria-hidden="true">
+          <!-- Aroow -->
+          <img src="assets/logos-icons/arrow.png" alt="Flecha indicando interacción" style="transform: rotate(-90deg)">
+        </div>
+        <div class="proyecto-img-wrapper scroll-reveal zoom-soft">
+          <img src="assets/proyecto-3.png" alt="Logotipos y redes sociales">
+        </div>
+      </div>
+    </div>
+  </section>
