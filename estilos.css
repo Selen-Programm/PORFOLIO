@@ -1,12 +1,12 @@
 /* estilos.css - Selen Design Portfolio - Responsive Fixes */
-/* ACTUALIZACION 8/8/2026 */
+/* ACTUALIZACION 15/9/2026 */
 
 :root {
     --black-cherry: #6f1417;
     --rosy-taupe: #b5868a;
     --alabaster-grey: #eae9e7;
     --platinum: #eeeeed;
-    --champagne-gold: #D6BD9F;
+    --champagne-gold: #bfa47a;
     --coffee-bean: #271818;
 
 
@@ -24,14 +24,17 @@
     box-sizing: border-box;
 }
 
-
-html,
-body {
+html, body {
     width: 100%;
     max-width: 100%;
     overflow-x: hidden;
-    /* Oculta fulminantemente la franja negra */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE y Edge */
+}
 
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    display: none; /* Chrome, Safari y Opera */
 }
 
 html {
@@ -45,7 +48,6 @@ body {
     background-color: var(--alabaster-grey);
     color: var(--black-cherry);
     line-height: 1.6;
-    /* FIX: evita scroll horizontal no deseado */
     overflow-x: hidden;
     width: 100%;
 }
@@ -82,6 +84,10 @@ p {
     font-size: 0.95rem;
 }
 
+.logo-text {
+    color: var(--black-cherry);
+    margin-top: 0;
+}
 .btn {
     display: inline-block;
     padding: 12px 28px;
@@ -120,16 +126,16 @@ p {
 header {
     background-color: var(--platinum);
     position: fixed;
+    top: 0;
+    left: 0;
     z-index: 900;
     width: 100%;
     height: 80px;
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
     border-bottom: 2px solid var(--alabaster-grey);
-    /* NUEVO: Alineación limpia en móviles */
     display: flex;
     justify-content: center;
-    /* Centra el logo en el medio */
-    align-items: center;
+    align-items: center; /* Alinea verticalmente todos los elementos al centro */
     padding: 0 20px;
 }
 
@@ -193,8 +199,6 @@ header {
 }
 
 .logo {
-    padding-top: 0;
-    /* Quitamos el padding que lo tiraba hacia abajo */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -547,7 +551,7 @@ nav a:hover {
 }
 
 .card {
-    background: var(--alabaster-grey);
+    background-color: var(--platinum);
     border-radius: var(--radius-md);
     padding: 24px;
     display: flex;
@@ -733,8 +737,8 @@ nav a:hover {
 .carousel {
     display: inline-block;
     position: relative;
-    height: 1em;
-    line-height: 1em;
+    height: 2.2em;
+    line-height: 2.2em;
     width: 100%;
     overflow: hidden;
     vertical-align: middle;
@@ -752,57 +756,29 @@ nav a:hover {
 .carousel-item {
     display: block;
     margin-bottom: 20px;
-    font-size: 30px;
+    font-size: clamp(1.5rem, 4vw, 2.2rem); /* Se ajusta el tamaño del texto dinámicamente */
     -webkit-text-fill-color: var(--champagne-gold);
+    white-space: nowrap; /* Evita saltos de línea innecesarios */
 }
 
 @keyframes carousel {
-    0% {
-        top: calc(-0em + -4px);
+    0%, 10% {
+        transform: translateY(0);
     }
-
-    10% {
-        top: calc(-0em + -4px);
+    20%, 30% {
+        transform: translateY(-3.5em);
     }
-
-    20% {
-        top: calc(-1em + -22px);
+    40%, 50% {
+        transform: translateY(-7em);
     }
-
-    30% {
-        top: calc(-1em + -22px);
+    60%, 70% {
+        transform: translateY(-10.6em);
     }
-
-    40% {
-        top: calc(-2em + -42px);
+    80%, 90% {
+        transform: translateY(-14em);
     }
-
-    50% {
-        top: calc(-2em + -42px);
-    }
-
-    60% {
-        top: calc(-3em + -60px);
-    }
-
-    70% {
-        top: calc(-3em + -60px);
-    }
-
-    80% {
-        top: calc(-4em + -78px);
-    }
-
-    90% {
-        top: calc(-4em + -78px);
-    }
-
-    95% {
-        top: calc(-5em + -96px);
-    }
-
-    100% {
-        top: calc(-5em + -96px);
+    95%, 100% {
+        transform: translateY(-17.3em);
     }
 }
 
@@ -1401,6 +1377,10 @@ footer p {
     box-shadow: -0.2em 1em 0 -0.75em #b78e81;
     transform: rotate(0deg) translate(-2em, 0);
     z-index: 1;
+
+    cursor: pointer;
+    pointer-events: auto !important;
+    z-index: 999; /* Asegura que quede sobre el header */
 }
 
 .rabbit:before {
@@ -1563,9 +1543,9 @@ footer p {
 /* --- NUEVO CSS PARA LA RÁFAGA DE CORAZONES --- */
 .heart {
     position: fixed;
-    font-size: 1rem;
+    font-size: 1.5rem;
     pointer-events: none;
-    z-index: 10;
+    z-index: 9999;
     will-change: transform, opacity;
     animation: burst 1s ease-out forwards;
 }
@@ -1574,9 +1554,11 @@ footer p {
 @keyframes burst {
     0% {
         opacity: 1;
-        transform: translate(-50%, -50%) scale(1) translate(0, 0);
+        transform: translate(-50%, -50%) scale(0.6) translate(0, 0);
     }
-
+    50% {
+        opacity: 1;
+    }
     100% {
         opacity: 0;
         transform: translate(-50%, -50%) scale(1.4) translate(var(--tx), var(--ty)) rotate(var(--tr));
@@ -1585,9 +1567,10 @@ footer p {
 
 @media screen and (min-width: 768px) {
     .rabbit {
-        right: 40px;
-        top: 20px;
-        transform: scale(0.6);
+        opacity: 1 !important; /* Si estaba en opacity: 0 lo vuelve visible */
+        display: block !important;
+        transform: scale(0.5);
+        margin-left: 10px;
     }
 
     .nav-toggle-label {
@@ -1595,20 +1578,22 @@ footer p {
     }
 
     header {
-        display: grid;
-        grid-template-columns: 1fr auto minmax(500px, 2fr) 1fr;
-        padding: 10px 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center; /* Mantiene exactamente el mismo espacio arriba y abajo */
+        padding: 0 40px;
     }
 
-    .logo {
-        grid-column: 1 / 2;
+   .logo {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        margin: 0;
     }
 
     nav {
         all: unset;
-        grid-column: 3 / 4;
         display: flex;
-        justify-content: flex-end;
         align-items: center;
     }
 
@@ -1703,15 +1688,12 @@ footer p {
 @media screen and (max-width: 767px) {
 
 
-    /* FIX 5: padding-top reducido en mobile */
     .carousel-container {
         padding-top: 30px;
     }
 
     .rabbit {
-        position: absolute;
-        align-content: right;
-        top: 25px;
+        opacity: 0;
     }
 
     .hero {
@@ -1731,22 +1713,19 @@ footer p {
         display: flex;
         align-items: center;
         justify-content: center;
-
-
     }
 
-    .logo {
+
+    /* .logo {
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
         z-index: 1;
-    }
+    } */
 
     .section-header h1 {
         font-size: 2.5rem;
     }
-
-    /* FIX 6: timeline dot y linea reajustados en mobile */
     .timeline {
         padding-left: 25px;
     }
@@ -1788,7 +1767,6 @@ footer p {
         display: none;
     }
 
-    /* FIX 7: slides no rompen el viewport en mobile */
     .slide {
         min-width: calc(100vw - 60px);
         max-width: calc(100vw - 60px);
@@ -1816,13 +1794,11 @@ footer p {
         text-align: center;
     }
 
-    /* FIX 8: skills-grid no desborda */
     .skills-grid {
         grid-template-columns: repeat(2, 1fr);
         max-width: 100%;
     }
 
-    /* FIX 4: email no se corta */
     .contact-item span {
         font-size: 0.8rem;
         word-break: break-all;
