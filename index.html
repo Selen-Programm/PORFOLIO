@@ -116,256 +116,254 @@
 
     <div class="container scroll-reveal fade-up">
       <div class="content">
-        <h2 class="content-title">Experiencia</h2>
         <div class="timeline">
-          <!-- 2026 y pasado -->
+          <!-- Librerías para la animación del recorrido -->
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
-          <div class="timeline-item scroll-reveal fade-left">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <span class="timeline-date">2020 - Presente</span>
-              <h3>UNNOBA</h3>
-              <p>Trabajos cooperativos siendo partícipe de diseño e interfaz.</p>
-            </div>
-          </div>
+          <section class="experience-tour" id="experiencia">
 
-          <div class="timeline-item scroll-reveal fade-right">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <span class="timeline-date">2026 - Presente</span>
-              <h3> Instituto de Inglés - IPFE</h3>
-              <p>Diseño de logotipo, diseño y desarrollo de la web institucional</p>
-            </div>
-          </div>
+            <div class="experience-header scroll-reveal fade-up">
+              <h2 class="content-title">Mi Trayectoria</h2>
 
-          <div class="timeline-item scroll-reveal fade-right">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <span class="timeline-date">2023 - Presente</span>
-              <h3>HCINCO - Cámaras de Seguridad</h3>
-              <p>Diseño de logotipo, post de marketing y web estática para la empresa.</p>
-            </div>
-          </div>
+            <!-- Decoraciones -->
+            <div class="experience-deco deco-1">✦</div>
+            <div class="experience-deco deco-2">✧</div>
+            <div class="experience-deco deco-3">•</div>
 
-          <div class="timeline-item scroll-reveal fade-left">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <span class="timeline-date">2022 - 2023</span>
-              <h3>Kabau - Empresa de Videojuegos</h3>
-              <p>Diseño de personajes e interfaz de juego.</p>
-            </div>
-          </div>
-          <div class="timeline-item scroll-reveal fade-right">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <span class="timeline-date">2021 - 2022</span>
-              <h3>Escuela Técnica N°2 - Junín</h3>
-              <p>Diseños de páginas webs dinámicas y estáticas.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+            <!-- Recorrido SVG -->
+            <svg class="experience-path" viewBox="0 0 1000 1700" preserveAspectRatio="none" aria-hidden="true">
+              <!-- Línea base -->
+              <path class="experience-path-bg" d="M 500,60
+               C 820,60 850,220 700,360
+               C 520,530 180,450 250,700
+               C 320,940 820,820 750,1080
+               C 680,1340 220,1190 300,1450
+               C 340,1570 500,1600 500,1640" />
 
-    <div class="container scroll-reveal fade-up">
-      <div class="content">
-        <h2 class="content-title">Estudios</h2>
-        <div class="cards cards-grid">
-          <div class="card card-study scroll-reveal fade-right">
-            <div class="card-icon">
-              <img src="assets/logos-icons/estudios.png" alt="Estudios secundarios">
-            </div>
-            <div class="card-body">
-              <h3>E.E.S.T. N°2 "Patricias Argentinas"</h3>
-              <p>Técnico en Informática</p>
-            </div>
-          </div>
-          <div class="card card-study scroll-reveal fade-left">
-            <div class="card-icon">
-              <img src="assets/logos-icons/recibida.png" alt="Diseño gráfico">
+              <!-- Línea animada -->
+              <path id="experiencePathActive" class="experience-path-active" d="M 500,60
+               C 820,60 850,220 700,360
+               C 520,530 180,450 250,700
+               C 320,940 820,820 750,1080
+               C 680,1340 220,1190 300,1450
+               C 340,1570 500,1600 500,1640" />
+            </svg>
+
+            <!-- 2026 - UNNOBA -->
+            <!-- <article class="experience-item experience-left">
+              <div class="experience-card">
+                 <div class="experience-image">
+            <img src="assets/images/unnoba.png" alt="Proyecto UNNOBA">
+                  <div class="experience-placeholder">
+                    <span>UNNOBA</span>
+                    <small>2026 · Presente</small>
+                  </div>
+                </div>
+
+                <div class="experience-info">
+
+                  <span class="experience-date">
+                    2026 · Presente
+                  </span>
+
+                  <h3>UNNOBA</h3>
+
+                  <p>
+                    Trabajos cooperativos siendo partícipe
+                    de diseño e interfaz.
+                  </p>
+
+                  <div class="experience-tags">
+                    <span>Diseño</span>
+                    <span>Interfaz</span>
+                    <span>Trabajo cooperativo</span>
+                  </div>
+
+                </div>
+
+              </div>
+
+            </article> -->
+
+            <!-- 2026 - ELC -->
+            <article class="experience-item experience-right">
+              <div class="experience-card">
+                <div class="experience-image">
+                  <img src="assets/proyectos/elc/web-wordpress.png" alt="Instituto de Inglés ELC">
+                </div>
+                <div class="experience-info">
+                  <span class="experience-date">
+                    2026
+                  </span>
+
+                  <h3>Instituto de Inglés · ELC</h3>
+                  <p>Diseño completo de pagina web, logotipo, diseño creativo, moderno. Mantenimiento de página y
+                    gestion de hosting.
+                  </p>
+                  <div class="experience-tags">
+                    <span>Branding</span>
+                    <span>Diseño web</span>
+                    <span>Desarrollo</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+            <!-- 2026 - AgendaPRO -->
+            <article class="experience-item experience-left">
+              <div class="experience-card">
+                <div class="experience-image">
+                  <img src="assets/proyectos/agendapro.png" alt="AgendaPRO">
+                </div>
+                <div class="experience-info">
+                  <span class="experience-date">
+                    2026
+                  </span>
+                  <h3>Agenda PRO · Diseño y gestion</h3>
+
+                  <p>Diseño creativo, logotipo, branding, organización de campañas publicitarias, estrategia comercial.
+                  </p>
+
+                  <div class="experience-tags">
+                    <span>Logo</span>
+                    <span>Marketing</span>
+                    <span>Branding</span>
+                  </div>
+
+                </div>
+
+              </div>
+
+            </article>
+
+            <!-- 2022 - KABAU -->
+            <article class="experience-item experience-right">
+              <div class="experience-card">
+                <div class="experience-image">
+                  <div class="experience-placeholder">
+                    <span>KABAU</span>
+                    <small>2022</small>
+                  </div>
+                </div>
+                <div class="experience-info">
+                  <span class="experience-date">
+                    2022
+                  </span>
+                  <h3>Kabau · Empresa de Videojuegos</h3>
+                  <p>
+                    Diseño de personajes e interfaz
+                    de juego.
+                  </p>
+                  <div class="experience-tags">
+                    <span>Personajes</span>
+                    <span>UI</span>
+                    <span>Videojuegos</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+
+            <!-- 2021 - ESCUELA TÉCNICA -->
+
+            <article class="experience-item experience-left">
+              <div class="experience-card">
+                <div class="experience-image">
+                  <div class="experience-placeholder">
+                    <span>ET Nº2</span>
+                    <small>2021</small>
+                  </div>
+                </div>
+                <div class="experience-info">
+                  <span class="experience-date">
+                    2021
+                  </span>
+                  <h3>Escuela Técnica N°2 · Junín</h3>
+                  <p>
+                    Diseños de páginas web dinámicas
+                    y estáticas.
+                  </p>
+                  <div class="experience-tags">
+                    <span>Web</span>
+                    <span>Diseño</span>
+                    <span>Desarrollo</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </section>
+
+
+
+          <div class="container scroll-reveal fade-up">
+            <div class="content">
+              <h2 class="content-title">Estudios</h2>
+              <div class="cards cards-grid">
+                <div class="card card-study scroll-reveal fade-right">
+                  <div class="card-icon">
+                    <img src="assets/logos-icons/programm.png" alt="Estudios secundarios">
+                  </div>
+                  <div class="card-body">
+                    <h3>Secundario Técnico Programación | EEST n2 "</h3>
+                    <p>Programación, creación de software, manejo de lenguajes de programación y manejo de base de
+                      datos.</p>
+                  </div>
+                </div>
+                <div class="card card-study scroll-reveal fade-left">
+                  <div class="card-icon">
+                    <img src="assets/logos-icons/recibida.png" alt="Diseño gráfico">
+                  </div>
+
+                  <div class="card-body">
+                    <h3>Lic. en Diseño Industrial | UNNOBA</h3>
+                    <p>Diseño de elementos de marca y maquinaria, procedimiento de fabricación y elavoración de
+                      producto, branding y marketing digital.</p>
+                  </div>
+                </div>
+                <div class="card card-study scroll-reveal fade-right">
+                  <div class="card-icon">
+                    <img src="assets/logos-icons/programm.png" alt="Programación">
+                  </div>
+                  <div class="card-body">
+                    <h3>Marketing Digital</h3>
+                    <p>Storytelling digital, herramientas MetaIA, desarrollo de ideas, propuestas de creacion, branding
+                      y marketing en redes sociales.</p>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <div class="card-body">
-              <h3>UNNOBA</h3>
-              <p>Cursando Diseño Industrial</p>
+            <!-- SKILLS CAROUSEL -->
+            <div class="carousel-container scroll-reveal fade-up">
+              <div class="carousel-section left">
+                <h2 class="carousel-title">Development</h2>
+                <div class="carousel">
+                  <div class="carousel-wrapper">
+                    <span class="carousel-item">HTML & CSS</span>
+                    <span class="carousel-item">JavaScript</span>
+                    <span class="carousel-item">Python</span>
+                    <span class="carousel-item">Java</span>
+                    <span class="carousel-item">C++</span>
+                    <span class="carousel-item">AND MORE!</span>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-section right">
+                <h2 class="carousel-title">Diseño Gráfico</h2>
+                <div class="carousel">
+                  <div class="carousel-wrapper">
+                    <span class="carousel-item">Krita</span>
+                    <span class="carousel-item">SAI v2</span>
+                    <span class="carousel-item">Photoshop</span>
+                    <span class="carousel-item">Illustrator</span>
+                    <span class="carousel-item">InDesign</span>
+                    <span class="carousel-item">AND MORE!</span>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="card card-study scroll-reveal fade-right">
-            <div class="card-icon">
-              <img src="assets/logos-icons/programm.png" alt="Programación">
-            </div>
-            <div class="card-body">
-              <h3>Tecnicatura en Programación</h3>
-              <p>Java, Python, C++</p>
-            </div>
-          </div>
-          <!-- <div class="card card-study scroll-reveal fade-left">
-            <div class="card-icon">
-              <img src="assets/logos-icons/idiomas.png" alt="Idiomas">
-            </div>
-            <div class="card-body">
-              <h3>Idiomas</h3>
-              <p>Japonés (2020 - 2023)</p>
-            </div>
-          </div> -->
-        </div>
-      </div>
-    </div>
-
-    <div class="container scroll-reveal fade-up">
-      <div class="content">
-        <h2 class="content-title">Especialidades</h2>
-        <div class="skills-grid">
-          <div class="skill-item scroll-reveal fade-right">
-            <div class="skill-icon">
-              <img src="assets/logos-icons/movil.png" alt="Apps móviles">
-            </div>
-            <span>Apps Móviles</span>
-          </div>
-          <div class="skill-item scroll-reveal fade-left">
-            <div class="skill-icon">
-              <img src="assets/logos-icons/work.png" alt="Logotipos">
-            </div>
-            <span>Logotipos</span>
-          </div>
-          <div class="skill-item scroll-reveal fade-right">
-            <div class="skill-icon">
-              <img src="assets/logos-icons/web.png" alt="Páginas Web">
-            </div>
-            <span>Páginas Web</span>
-          </div>
-          <div class="skill-item scroll-reveal fade-left">
-            <div class="skill-icon">
-              <img src="assets/logos-icons/character.png" alt="Personajes">
-            </div>
-            <span>Personajes</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- SKILLS CAROUSEL -->
-    <div class="carousel-container scroll-reveal fade-up">
-      <div class="carousel-section left">
-        <h2 class="carousel-title">Development</h2>
-        <div class="carousel">
-          <div class="carousel-wrapper">
-            <span class="carousel-item">HTML & CSS</span>
-            <span class="carousel-item">JavaScript</span>
-            <span class="carousel-item">Python</span>
-            <span class="carousel-item">Java</span>
-            <span class="carousel-item">C++</span>
-            <span class="carousel-item">AND MORE!</span>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-section right">
-        <h2 class="carousel-title">Diseño Gráfico</h2>
-        <div class="carousel">
-          <div class="carousel-wrapper">
-            <span class="carousel-item">Krita</span>
-            <span class="carousel-item">SAI v2</span>
-            <span class="carousel-item">Photoshop</span>
-            <span class="carousel-item">Illustrator</span>
-            <span class="carousel-item">InDesign</span>
-            <span class="carousel-item">AND MORE!</span>
-          </div>
-        </div>
-      </div>
-    </div>
   </section>
 
-  <!-- WEB DESIGNS SECTION -->
-  <section id="proyectos" class="web-section scroll-reveal fade-up">
-    <div class="section-header">
-      <span class="section-tag">Portfolio</span>
-      <h1>Diseños Web</h1>
-      <div class="section-line"></div>
-    </div>
-  </section>
-
-  <section class="diseñosWeb scroll-reveal fade-right">
-    <div class="carousel-web">
-
-      <!-- Proyectos webs 1 -->
-
-      <div class="slide scroll-reveal fade-right">
-        <div class="slide-grid">
-          <div class="slide-image">
-            <img src="assets/WebPages/webpag-gloveaf.png" alt="Diseño web proyecto 2">
-          </div>
-          <div class="slide-text">
-            <span class="slide-tag">GLOVEAF</span>
-            <h2>Página informativa</h2>
-            <p>Optimización de la página informativa para mejorar la experiencia del usuario y la visibilidad en los
-              motores de búsqueda.</p>
-            <div class="slide-tech">
-              <span>Css</span>
-              <span>JavaScript</span>
-              <span>React</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="slide scroll-reveal fade-right">
-        <div class="slide-grid">
-          <div class="slide-image">
-            <img src="assets/WebPages/webpag-hcinco.jpg" alt="Diseño web proyecto 2">
-          </div>
-          <div class="slide-text">
-            <span class="slide-tag">E-commerce</span>
-            <h2>Tienda Online</h2>
-            <p>Plataforma de comercio electrónico con carrito de compras y pasarela de pagos. Enfocada en un diseño
-              moderno y responsivo.</p>
-            <div class="slide-tech">
-              <span>React</span>
-              <span>Node.js</span>
-              <span>SQL</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="slide scroll-reveal fade-right">
-        <div class="slide-grid">
-          <div class="slide-image">
-            <img src="assets/WebPages/webpag-paneladmin.png" alt="Diseño web proyecto 2">
-          </div>
-          <div class="slide-text">
-            <span class="slide-tag">Administración</span>
-            <h2>Panel de administración</h2>
-            <p>Plataforma de administración con funcionalidades para gestionar contenido, usuarios y configuraciones.
-              Enfocada en un diseño escolar, moderno y responsivo.</p>
-            <div class="slide-tech">
-              <span>Css</span>
-              <span>JavaScript</span>
-              <span>SQL</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="slide scroll-reveal fade-right">
-        <div class="slide-grid">
-          <div class="slide-image">
-            <img src="assets/WebPages/webpag-commissions.png" alt="Diseño web proyecto 3">
-          </div>
-          <div class="slide-text">
-            <span class="slide-tag">Web personal</span>
-            <h2>Web Personal</h2>
-            <p>Sitio personal para artista digital con galería interactiva y formulario de contacto.</p>
-            <div class="slide-tech">
-              <span>HTML</span>
-              <span>SCSS</span>
-              <span>JAVASCRIPT</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="carousel-nav">
-      <span class="carousel-hint">Desliza para ver más</span>
-    </div>
-  </section>
   <!-- DISEÑOS DE PUBLICIDADES -->
 
   <section class="flyers-section">
@@ -378,7 +376,7 @@
     <div class="carousel-container">
       <div class="carousel-track">
 
-        <!-- PROYECTO 1: Con sub-carrusel de varias imágenes -->
+        <!-- PROYECTO 1 -->
         <article class="flyer-card">
           <div class="card-image-wrapper">
             <div class="inner-image-slider">
@@ -397,6 +395,31 @@
             </p>
             <div class="tags-group">
               <span class="tag">Photoshop</span>
+              <span class="tag">Branding</span>
+            </div>
+          </div>
+        </article>
+
+
+        <!-- PROYECTO 1 -->
+        <article class="flyer-card">
+          <div class="card-image-wrapper">
+            <div class="inner-image-slider">
+              <img src="assets/proyectos/instagram-post/KICKBOXgym/1.png" alt="Flyer KICKBOXgym 1">
+              <img src="assets/proyectos/instagram-post/KICKBOXgym/2.png" alt="Flyer KICKBOXgym 2">
+              <img src="assets/proyectos/instagram-post/KICKBOXgym/3.png" alt="Flyer KICKBOXgym 3">
+            </div>
+            <span class="image-badge">1/3</span>
+          </div>
+
+          <div class="card-content">
+            <span class="card-tag">BRANDING</span>
+            <h3 class="card-title">BLACKSCORPION GYM</h3>
+            <p class="card-description">
+              Diseño gráfico e identidad visual enfocado en publicidad local para redes sociales y flayers.
+            </p>
+            <div class="tags-group">
+              <span class="tag">Canva</span>
               <span class="tag">Branding</span>
             </div>
           </div>
@@ -590,6 +613,92 @@ https://canva.link/oq7eo4rdvs9bw9n (gloveaf presentación tec unnoba) -->
   </footer>
 
   <script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+      /* =====================================================
+         RECORRIDO DE EXPERIENCIA
+         ===================================================== */
+
+      if (typeof gsap !== "undefined" &&
+        typeof ScrollTrigger !== "undefined") {
+
+        gsap.registerPlugin(ScrollTrigger);
+
+        const path = document.getElementById(
+          "experiencePathActive"
+        );
+
+        const experienceSection =
+          document.querySelector(".experience-tour");
+
+        if (path && experienceSection) {
+
+          const pathLength = path.getTotalLength();
+
+          path.style.strokeDasharray = pathLength;
+          path.style.strokeDashoffset = pathLength;
+
+          gsap.to(path, {
+
+            strokeDashoffset: 0,
+
+            ease: "none",
+
+            scrollTrigger: {
+              trigger: experienceSection,
+
+              start: "top 65%",
+              end: "bottom 80%",
+
+              scrub: 1.2
+            }
+
+          });
+        }
+
+
+        /* =================================================
+           APARICIÓN DE LAS EXPERIENCIAS
+           ================================================= */
+
+        const experiences =
+          document.querySelectorAll(".experience-item");
+
+        experiences.forEach((item) => {
+
+          ScrollTrigger.create({
+
+            trigger: item,
+
+            start: "top 78%",
+
+            once: true,
+
+            onEnter: () => {
+              item.classList.add("is-visible");
+            }
+
+          });
+
+        });
+
+      } else {
+
+        /* Si GSAP no carga, las tarjetas
+           igualmente permanecen visibles */
+
+        document
+          .querySelectorAll(".experience-item")
+          .forEach((item) => {
+
+            item.classList.add("is-visible");
+
+          });
+      }
+
+    });
+
     const carouselWeb = document.querySelector(".carousel-web");
     if (carouselWeb) {
       carouselWeb.addEventListener("wheel", function (evt) {

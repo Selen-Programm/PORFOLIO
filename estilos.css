@@ -4,8 +4,8 @@
 :root {
     --black-cherry: #6f1417;
     --rosy-taupe: #b5868a;
-    --alabaster-grey: #eae9e7;
-    --platinum: #eeeeed;
+    --alabaster-grey: #eeeeed;
+    --platinum: #f1f1f1;
     --champagne-gold: #bfa47a;
     --coffee-bean: #271818;
 
@@ -24,17 +24,21 @@
     box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
     width: 100%;
     max-width: 100%;
     overflow-x: hidden;
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE y Edge */
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE y Edge */
 }
 
 html::-webkit-scrollbar,
 body::-webkit-scrollbar {
-    display: none; /* Chrome, Safari y Opera */
+    display: none;
+    /* Chrome, Safari y Opera */
 }
 
 html {
@@ -88,6 +92,7 @@ p {
     color: var(--black-cherry);
     margin-top: 0;
 }
+
 .btn {
     display: inline-block;
     padding: 12px 28px;
@@ -135,7 +140,8 @@ header {
     border-bottom: 2px solid var(--alabaster-grey);
     display: flex;
     justify-content: center;
-    align-items: center; /* Alinea verticalmente todos los elementos al centro */
+    align-items: center;
+    /* Alinea verticalmente todos los elementos al centro */
     padding: 0 20px;
 }
 
@@ -315,7 +321,7 @@ nav a:hover {
 }
 
 .key {
-    font-size: clamp(3rem, 12vw, 8rem);
+    font-size: clamp(10rem, 12vw, 8rem);
     display: inline-block;
     letter-spacing: -0.5vw;
     transition: transform 0.2s;
@@ -613,7 +619,393 @@ nav a:hover {
     min-height: 250px;
 }
 
-.timeline {
+
+/* TIMELINE NUEVO */
+/* =========================================================
+   EXPERIENCIA - SELEN DESIGN
+   Recorrido animado
+   ========================================================= */
+
+.experience-tour {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 90px 20px 80px;
+    overflow: hidden;
+    background: var(--alabaster-grey);
+}
+
+/* ---------------------------------------------------------
+   ENCABEZADO
+   --------------------------------------------------------- */
+
+.experience-header {
+    position: relative;
+    z-index: 5;
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+.experience-tag {
+    display: inline-block;
+    color: var(--rosy-taupe);
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.experience-header .content-title {
+    margin: 0;
+    color: var(--black-cherry);
+    font-family: "Bebas Neue", sans-serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 400;
+}
+
+.experience-line {
+    width: 60px;
+    height: 3px;
+    margin: 15px auto 0;
+    background: var(--champagne-gold);
+    border-radius: 2px;
+}
+
+
+/* ---------------------------------------------------------
+   DECORACIONES
+   --------------------------------------------------------- */
+
+.experience-deco {
+    position: absolute;
+    z-index: 1;
+    color: var(--champagne-gold);
+    font-family: "Bebas Neue", sans-serif;
+    pointer-events: none;
+    opacity: 0.55;
+}
+
+.deco-1 {
+    top: 18%;
+    right: 8%;
+    font-size: 2.5rem;
+    transform: rotate(15deg);
+}
+
+.deco-2 {
+    top: 48%;
+    left: 8%;
+    font-size: 3rem;
+    transform: rotate(-20deg);
+}
+
+.deco-3 {
+    bottom: 15%;
+    right: 15%;
+    font-size: 2rem;
+}
+
+
+/* ---------------------------------------------------------
+   RECORRIDO SVG
+   --------------------------------------------------------- */
+
+.experience-path {
+    position: absolute;
+    z-index: 1;
+    top: 170px;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 170px);
+    pointer-events: none;
+    overflow: visible;
+}
+
+/* Línea de fondo */
+
+.experience-path-bg {
+    fill: none;
+    stroke: rgba(191, 164, 122, 0.25);
+    stroke-width: 14;
+    stroke-linecap: round;
+}
+
+/* Línea que avanza con el scroll */
+
+.experience-path-active {
+    fill: none;
+    stroke: var(--champagne-gold);
+    stroke-width: 14;
+    stroke-linecap: round;
+}
+
+
+/* ---------------------------------------------------------
+   ITEMS
+   --------------------------------------------------------- */
+
+.experience-item {
+    position: relative;
+    z-index: 3;
+
+    width: 100%;
+    min-height: 270px;
+
+    display: flex;
+    align-items: center;
+
+    margin-bottom: 80px;
+
+    opacity: 0;
+    transform: translateY(60px);
+
+    transition:
+        opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.experience-item.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* Posiciones */
+
+.experience-left {
+    justify-content: flex-start;
+    padding-right: 50%;
+}
+
+.experience-right {
+    justify-content: flex-end;
+    padding-left: 50%;
+}
+
+
+/* ---------------------------------------------------------
+   TARJETA
+   --------------------------------------------------------- */
+
+.experience-card {
+    width: 100%;
+    max-width: 500px;
+
+    display: flex;
+    flex-direction: column;
+
+    background: var(--platinum);
+
+    border-radius: var(--radius-lg);
+
+    overflow: hidden;
+
+    box-shadow: var(--shadow-soft);
+
+    border: 1px solid rgba(181, 134, 138, 0.15);
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.experience-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-medium);
+}
+
+
+.experience-image {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.experience-image img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.experience-placeholder {
+    text-align: center;
+    color: var(--platinum);
+}
+
+.experience-placeholder span {
+    display: block;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+
+    letter-spacing: 2px;
+}
+
+.experience-placeholder small {
+    display: block;
+
+    margin-top: 4px;
+
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    color: var(--alabaster-grey);
+}
+
+
+.experience-info {
+    padding: 25px 28px 28px;
+}
+
+.experience-date {
+    display: inline-block;
+
+    margin-bottom: 8px;
+
+    color: var(--champagne-gold);
+    font-weight: 600;
+
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.experience-info h3 {
+    margin: 0 0 10px;
+
+    color: var(--black-cherry);
+
+    font-family: "Bebas Neue", sans-serif;
+    font-size: clamp(1.35rem, 3vw, 1.7rem);
+    font-weight: 400;
+
+    line-height: 1.1;
+}
+
+.experience-info p {
+    margin: 0;
+
+    color: var(--coffee-bean);
+
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.85rem;
+
+    line-height: 1.6;
+}
+
+.experience-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+
+    margin-top: 18px;
+}
+
+.experience-tags span {
+    display: inline-block;
+
+    padding: 5px 12px;
+
+    background: rgba(191, 164, 122, 0.15);
+
+    color: var(--rosy-taupe);
+
+    border: 1px solid rgba(191, 164, 122, 0.35);
+
+    border-radius: 20px;
+}
+
+
+@media (max-width: 900px) {
+
+    .experience-left,
+    .experience-right {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .experience-card {
+        max-width: 600px;
+    }
+
+    .experience-item {
+        justify-content: center;
+    }
+}
+
+
+@media (max-width: 768px) {
+
+    .experience-tour {
+        padding: 70px 18px 60px;
+    }
+
+    .experience-header {
+        margin-bottom: 50px;
+    }
+
+    /* En celular quitamos el recorrido para
+       evitar que interfiera con las tarjetas */
+
+    .experience-path {
+        display: none;
+    }
+
+    .experience-deco {
+        display: none;
+    }
+
+    .experience-item {
+        min-height: auto;
+        margin-bottom: 35px;
+
+        opacity: 1;
+        transform: none;
+    }
+
+    .experience-card {
+        max-width: 100%;
+        border-radius: var(--radius-md);
+    }
+
+    .experience-image {
+        height: 0px;
+        opacity: 0;
+    }
+
+    .experience-info {
+        padding: 22px;
+    }
+
+    .experience-info h3 {
+        font-size: 1.4rem;
+    }
+
+    .experience-info p {
+        font-size: 0.82rem;
+    }
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+    .experience-item {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+    .experience-card {
+        transition: none;
+    }
+}
+
+/* TIME LINE ANTIGUO  */
+/* .timeline {
     position: relative;
     padding-left: 30px;
 }
@@ -667,7 +1059,7 @@ nav a:hover {
 .timeline-content p {
     font-size: 0.85rem;
     opacity: 0.8;
-}
+} */
 
 .skills-grid {
     display: grid;
@@ -756,28 +1148,42 @@ nav a:hover {
 .carousel-item {
     display: block;
     margin-bottom: 20px;
-    font-size: clamp(1.5rem, 4vw, 2.2rem); /* Se ajusta el tamaño del texto dinámicamente */
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    /* Se ajusta el tamaño del texto dinámicamente */
     -webkit-text-fill-color: var(--champagne-gold);
-    white-space: nowrap; /* Evita saltos de línea innecesarios */
+    white-space: nowrap;
+    /* Evita saltos de línea innecesarios */
 }
 
 @keyframes carousel {
-    0%, 10% {
+
+    0%,
+    10% {
         transform: translateY(0);
     }
-    20%, 30% {
+
+    20%,
+    30% {
         transform: translateY(-3.5em);
     }
-    40%, 50% {
+
+    40%,
+    50% {
         transform: translateY(-7em);
     }
-    60%, 70% {
+
+    60%,
+    70% {
         transform: translateY(-10.6em);
     }
-    80%, 90% {
+
+    80%,
+    90% {
         transform: translateY(-14em);
     }
-    95%, 100% {
+
+    95%,
+    100% {
         transform: translateY(-17.3em);
     }
 }
@@ -950,9 +1356,11 @@ nav a:hover {
 .card-image-wrapper {
     position: relative;
     flex: 1;
-    max-width: 320px;       /* Ancho del contenedor del flyer */
+    max-width: 320px;
+    /* Ancho del contenedor del flyer */
     width: 100%;
-    height: 380px;          /* Proporción vertical tipo flyer (4:5 aprox) */
+    height: 380px;
+    /* Proporción vertical tipo flyer (4:5 aprox) */
     border-radius: 20px;
     overflow: hidden;
 }
@@ -1380,7 +1788,8 @@ footer p {
 
     cursor: pointer;
     pointer-events: auto !important;
-    z-index: 999; /* Asegura que quede sobre el header */
+    z-index: 999;
+    /* Asegura que quede sobre el header */
 }
 
 .rabbit:before {
@@ -1556,9 +1965,11 @@ footer p {
         opacity: 1;
         transform: translate(-50%, -50%) scale(0.6) translate(0, 0);
     }
+
     50% {
         opacity: 1;
     }
+
     100% {
         opacity: 0;
         transform: translate(-50%, -50%) scale(1.4) translate(var(--tx), var(--ty)) rotate(var(--tr));
@@ -1567,7 +1978,8 @@ footer p {
 
 @media screen and (min-width: 768px) {
     .rabbit {
-        opacity: 1 !important; /* Si estaba en opacity: 0 lo vuelve visible */
+        opacity: 1 !important;
+        /* Si estaba en opacity: 0 lo vuelve visible */
         display: block !important;
         transform: scale(0.5);
         margin-left: 10px;
@@ -1580,11 +1992,12 @@ footer p {
     header {
         display: flex;
         justify-content: space-between;
-        align-items: center; /* Mantiene exactamente el mismo espacio arriba y abajo */
+        align-items: center;
+        /* Mantiene exactamente el mismo espacio arriba y abajo */
         padding: 0 40px;
     }
 
-   .logo {
+    .logo {
         display: flex;
         align-items: center;
         height: 100%;
@@ -1726,6 +2139,7 @@ footer p {
     .section-header h1 {
         font-size: 2.5rem;
     }
+
     .timeline {
         padding-left: 25px;
     }
