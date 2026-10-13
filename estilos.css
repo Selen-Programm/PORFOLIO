@@ -941,6 +941,23 @@ nav a:hover {
 
 
 @media (max-width: 768px) {
+    /* Media Query para dispositivos móviles */
+
+    .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 500px;
+        width: 100%;
+        padding: 0 15px;
+    }
+
+    .hero-title {
+        margin-bottom: 15px;
+
+        .key {
+            font-size: clamp(6rem, 12vw, 7rem);
+        }
+    }
 
     .experience-tour {
         padding: 70px 18px 60px;
@@ -999,67 +1016,12 @@ nav a:hover {
         transform: none;
         transition: none;
     }
+
     .experience-card {
         transition: none;
     }
 }
 
-/* TIME LINE ANTIGUO  */
-/* .timeline {
-    position: relative;
-    padding-left: 30px;
-}
-
-.timeline::before {
-    content: '';
-    position: absolute;
-    left: 8px;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background: var(--champagne-gold);
-}
-
-.timeline-item {
-    position: relative;
-    margin-bottom: 30px;
-    padding-left: 20px;
-}
-
-.timeline-dot {
-    position: absolute;
-    left: -26px;
-    top: 5px;
-    width: 14px;
-    height: 14px;
-    background: var(--champagne-gold);
-    border-radius: 50%;
-}
-
-.timeline-content {
-    background: var(--platinum);
-    padding: 20px;
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-soft);
-}
-
-.timeline-date {
-    font-size: 0.75rem;
-    color: var(--champagne-gold);
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.timeline-content h3 {
-    margin: 8px 0;
-    color: var(--black-cherry);
-}
-
-.timeline-content p {
-    font-size: 0.85rem;
-    opacity: 0.8;
-} */
 
 .skills-grid {
     display: grid;
@@ -2127,14 +2089,6 @@ footer p {
         align-items: center;
         justify-content: center;
     }
-
-
-    /* .logo {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: 1;
-    } */
 
     .section-header h1 {
         font-size: 2.5rem;
